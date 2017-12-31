@@ -1,15 +1,14 @@
 // Import here Polyfills if needed. Recommended core-js (npm i -D core-js)
 // import "core-js/fn/array.find"
 // ...
-// export default class DummyClass {
-// }
+export default class DummyClass {}
 
 console.log(
   'working!'
 ) /** hack for https://github.com/TypeStrong/typedoc/issues/603 */
 
 /**
- * This file is the entry point for local execution as a Singer tap (see the [spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md))
+ * This module is the entry point for local execution as a Singer tap (see the [spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md))
  */
 import * as configLoader from './tap-load-config'
 import * as parseMime from './parse-mime'

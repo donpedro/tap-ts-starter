@@ -21,10 +21,9 @@
   "scripts": {
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
-    "build": "tsc && tsc --module commonjs --outDir dist/lib && rollup -c rollup.config.ts && typedoc --out dist/docs --target es6 --theme minimal --mode file src",
+    "build": "tsc && tsc --module commonjs --outDir dist/lib && rollup -c rollup.config.ts && npm run build-docs-tap && npm run build-docs-aws",
     "start": "tsc -w & rollup -c rollup.config.ts -w",
     "test": "jest",
-    "run-rollup": "node dist/tap-ts-starter.cjs --config testdata/emails.tap-config.json",
     "test:watch": "jest --watch",
     "test:prod": "npm run lint && npm run test -- --coverage --no-cache",
     "deploy-docs": "ts-node tools/gh-pages-publish",
@@ -32,7 +31,11 @@
     "commit": "git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "build-default-docs":"typedoc --out dist/docs --target es6 --theme minimal --mode file src",
+    "build-docs-tap": "typedoc --mode modules --out dist/docs-tap src/tap-ts-starter.ts --target es6",
+    "build-docs-aws": "typedoc --mode modules --out dist/docs-aws src/handler.ts --target es6",
+    "run-rollup": "node dist/tap-ts-starter.cjs --config testdata/emails.tap-config.json"    
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
