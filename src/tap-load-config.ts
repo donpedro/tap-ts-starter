@@ -4,9 +4,10 @@
 
 // fs-extra is a promise-enabled superset of the standard fs package
 import * as fse from 'fs-extra'
+import * as tapTypes from './tap-types'
 
 /** return an object containing the contents of config, state and catalog files */
-export function loadConfig(): Promise<any> {
+export function loadConfig(): Promise<tapTypes.allConfigs> {
   var args = process.argv.slice(2) // remove unneeded boilerplate args
   if (args[0] != '--config') {
     console.error(
@@ -17,8 +18,11 @@ export function loadConfig(): Promise<any> {
     })
   } else {
     return fse.readFile(args[1]).then(function(buffer: Buffer) {
-      let config = JSON.parse(buffer.toString())
-      return { config: config } // TODO: convert this to return a class
+      let config = <tapTypes.ConfigType>JSON.parse(buffer.toString())
+      // if (config instanceof configType) {
+
+      // }
+      return { config: config }
     })
   }
 }

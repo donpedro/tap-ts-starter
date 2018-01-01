@@ -6,6 +6,7 @@
 
 /** fs-extra is a promise-enabled superset of the standard fs package */
 import * as fse from 'fs-extra'
+import * as tapTypes from './tap-types'
 
 /** generate json-schemas for our records, if needed */
 var generateSchema = require('generate-schema') // typescript types aren't available so we load javascript-style instead of using typescript's import
@@ -42,17 +43,14 @@ export function scanDir(configObjs: any, parser: any) {
     .then(function(parsedObjs) {
       if (parsedObjs.length == 0) return null
 
+      let schm = new tapTypes.streamSchema()
+
       // if no schema exists, create a schema based on the first new object
-      if (!schema) schema = generateSchema.json(parsedObjs[0].record)
+      if (!schm.schema) schm.schema = generateSchema.json(parsedObjs[0].record)
+      schm.stream = parsedObjs[0].stream
+
       // write the schema
-      console.log(
-        JSON.stringify({
-          type: 'SCHEMA',
-          stream: parsedObjs[0].stream,
-          key_properties: [],
-          schema: schema
-        })
-      )
+      console.log(JSON.stringify(schm))
 
       // write the objects
       parsedObjs.forEach(function(parsedObj, idx) {

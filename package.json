@@ -32,10 +32,10 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
-    "build-default-docs":"typedoc --out dist/docs --target es6 --theme minimal --mode file src",
+    "build-default-docs": "typedoc --out dist/docs --target es6 --theme minimal --mode file src",
     "build-docs-tap": "typedoc --mode modules --out dist/docs-tap src/tap-ts-starter.ts --target es6",
     "build-docs-aws": "typedoc --mode modules --out dist/docs-aws src/handler.ts --target es6",
-    "run-rollup": "node dist/tap-ts-starter.cjs --config testdata/emails.tap-config.json"    
+    "run-rollup": "node dist/tap-ts-starter.cjs --config testdata/emails.tap-config.json"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
@@ -80,6 +80,7 @@
   "devDependencies": {
     "@types/jest": "^21.1.0",
     "@types/node": "^8.0.0",
+    "aws-sdk": "^2.176.0",
     "colors": "^1.1.2",
     "commitizen": "^2.9.6",
     "coveralls": "^3.0.0",
