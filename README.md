@@ -23,8 +23,8 @@ This code path is documented [here](dist/docs-aws/index.html) (or [here](../docs
     * npm (installs with Node)
     * typescript - installed as a development dependency
     * serverless - `npm install -g serverless` to install globally
-* Clone: `git clone git@bitbucket.org:sbcotton/messages-template.git`
-* After cloning the repo, be sure to run `npm install` to install npm packages
+* Clone: `git clone https://github.com/donpedro/tap-ts-starter.git`
+    * After cloning the repo, be sure to run `npm install` to install npm packages
 * Debug: with [VScode](https://code.visualstudio.com/download) use `Open Folder` to open the project folder, then hit F5 to debug. This runs without compiling to javascript using [ts-node](https://www.npmjs.com/package/ts-node)
 * Test: `npm test` or `npm t`
 * Compile documentation: `npm run build-docs-tap` and `npm run build-docs-aws`
