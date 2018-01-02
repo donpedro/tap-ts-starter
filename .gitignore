@@ -4,6 +4,10 @@ coverage
 .DS_Store
 *.log
 .idea
-dist
+dist/*
+!dist/docs-aws/
+!dist/docs-tap/
+
+parse-mime.ts
 compiled
 .awcache

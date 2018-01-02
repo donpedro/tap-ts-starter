@@ -14,8 +14,6 @@ export interface ConfigType {
   target_folder?: string
 }
 
-// export abstract class configType implements ConfigType {};
-
 /** This object contains all available CONFIG/STATE/CATALOG records
  * https://github.com/singer-io/getting-started/blob/master/SPEC.md#synopsis */
 export interface allConfigs {

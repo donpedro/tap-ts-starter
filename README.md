@@ -1,12 +1,12 @@
 # tap-ts-starter #
 
-This is a [Singer](https://singer.io) tap built with TypeScript/javascript that runs in Node and produces JSON-formatted data following the [Singer spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md).
+This is a [Singer](https://singer.io) tap built with TypeScript/javascript that runs in Node and produces JSON-formatted data following the [Singer spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md), and most of the spec is reflected in [tap-types.ts](./src/tap-types.ts).
 
 This tap:
 - Scans a local folder, treating the files it finds there as emails (MIME), parsing them into JSON with [Nodemailer.Mailparser](https://nodemailer.com/extras/mailparser/)
 - Outputs a schema along with the resulting json for each file
 
-This tap is also meant as a template to be forked for other uses. It separates the scanning of a resource collection (e.g. a folder) and the parsing of the individual resources (e.g. MIME files) into separate modules for easy drop-in replacement. A scanner module is included (scan-dir.ts for scanning local folders) and a parser module (parse-mime.ts for parsing emails).
+This tap is also meant as a template to be forked for other uses. It separates the scanning of a resource collection (e.g. a folder) and the parsing of the individual resources (e.g. MIME files) into separate modules for easy drop-in replacement. A scanner module is included ([scan-dir.ts](./src/scan-dir.ts) for scanning local folders) and a parser module ([parse-mime.ts](./src/parse-mime.ts) for parsing emails) is included as well.
 
 This code path is documented [here](dist/docs-tap/index.html) (or [here](../docs-tap/index.html)).
 
@@ -32,6 +32,7 @@ This code path is documented [here](dist/docs-aws/index.html) (or [here](../docs
 * Deploy: `serverless deploy --aws-profile [profilename]`
     * depends on [aws-cli](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) [named profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html)
 * More options are included from [TypeScript Library Starter](https://github.com/alexjoverm/typescript-library-starter.git) and are documented [here](starter-README.md)
+* Run using included test data (be sure to build first): `node dist/tap-ts-starter.cjs.js --config testdata/emails.tap-config.json`
 
 ### Notes
-This file is written using [Markdown](https://bitbucket.org/tutorials/markdowndemo).
+Note: This document is written in [Markdown](https://daringfireball.net/projects/markdown/). We like to use [Typora](https://typora.io/) and [Markdown Preview Plus](https://chrome.google.com/webstore/detail/markdown-preview-plus/febilkbfcbhebfnokafefeacimjdckgl?hl=en-US) for our Markdown work.
