@@ -1,6 +1,6 @@
 # tap-ts-starter #
 
-This is a [Singer](https://singer.io) tap built with TypeScript/javascript that runs in Node and produces JSON-formatted data following the [Singer spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md), and most of the spec is reflected in [tap-types.ts](./src/tap-types.ts).
+This is a [Singer](https://singer.io) tap built with TypeScript/javascript that runs in Node and produces JSON-formatted data following the [Singer spec](https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md#singer-specification), and most of the spec is reflected in [tap-types.ts](./src/tap-types.ts).
 
 This tap:
 - Scans a local folder, treating the files it finds there as emails (MIME), parsing them into JSON with [Nodemailer.Mailparser](https://nodemailer.com/extras/mailparser/)
