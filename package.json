@@ -112,9 +112,10 @@
   },
   "dependencies": {
     "@types/fs-extra": "^5.0.2",
+    "@types/mailparser": "^2.0.2",
     "fs-extra": "^5.0.0",
     "generate-schema": "^2.6.0",
-    "@types/mailparser": "^2.0.2",
-    "mailparser": "^2.2.0"
+    "mailparser": "^2.2.0",
+    "xml2js": "^0.4.19"
   }
 }
