@@ -9,7 +9,7 @@ export function parseItem(xmlfile: Buffer) {
       //console.dir(result);
       if (result != null) {
         let rec = new tapTypes.streamRecord()
-        rec.stream = 'email'
+        rec.stream = 'xml'
         rec.time_extracted = new Date()
         rec.record = result
         resolve(rec)
