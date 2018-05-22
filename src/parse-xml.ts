@@ -1,5 +1,6 @@
-//how to use a promise right here, just how parse.mime is used
-//
+/** parseSting is a xml to json parser from npm 'xml2js' module (https://www.npmjs.com/package/xml2js)
+ *
+ */
 import * as tapTypes from './tap-types'
 var parseString = require('xml2js').parseString
 

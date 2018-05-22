@@ -36,3 +36,9 @@ This code path is documented [here](dist/docs-aws/index.html) (or [here](../docs
 
 ### Notes
 Note: This document is written in [Markdown](https://daringfireball.net/projects/markdown/). We like to use [Typora](https://typora.io/) and [Markdown Preview Plus](https://chrome.google.com/webstore/detail/markdown-preview-plus/febilkbfcbhebfnokafefeacimjdckgl?hl=en-US) for our Markdown work.
+
+#### XML Parser
+
+There is a typescript file called 'xml-parse.ts', this file exports a function 'parseItem' and this function returns a Promise. The Promise first uses an npm module 'xml2js' to parse the given xml file to json. When the parsing is complete the Promise resolves if a valid is result is parsed or rejects if an error is encountered. 
+
+npm module: https://www.npmjs.com/package/xml2js 
