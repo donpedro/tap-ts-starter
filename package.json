@@ -115,6 +115,7 @@
     "@types/mailparser": "^2.0.2",
     "fs-extra": "^6.0.1",
     "generate-schema": "^2.6.0",
+    "lodash": "^4.17.10",
     "mailparser": "^2.2.0",
     "npm": "^6.0.1"
   }
