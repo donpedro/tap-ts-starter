@@ -46,6 +46,7 @@ export function scanDir(configObjs: any, parser: any) {
 
       // if no schema exists, create a schema based on the first new object
       if (!schm.schema) schm.schema = generateSchema.json(parsedObjs[0].record)
+      //generating schema based on .record which is the data
       schm.stream = parsedObjs[0].stream
 
       // write the schema
