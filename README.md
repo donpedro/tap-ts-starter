@@ -52,6 +52,7 @@ I followed this [guide](https://docs.aws.amazon.com/cli/latest/userguide/install
 Download and Install "Windows x86-64 executable installer" for [Python](https://www.python.org/downloads/release/python-365/) 
 
 - Add "C:\Python36" and "C:\Python36\Scripts" to PATH environment variable
+- Add "C:\Users\\\[user]\AppData\Roaming\Python\Python36\Scripts" to PATH env var
 - Run command "pip install awscli"
 
 AWS stores credentials in two files in folder "{userprofile}\\.aws"
