@@ -49,7 +49,7 @@ export function scanDir(configObjs: any, parser: any) {
       schm.stream = parsedObjs[0].stream
 
       // write the schema
-      //console.log(JSON.stringify(schm))
+      console.log(JSON.stringify(schm))
 
       // write the objects
       parsedObjs.forEach(function(parsedObj, idx) {

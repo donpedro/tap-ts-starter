@@ -32,8 +32,8 @@ provider:
       Action:
         - "s3:*"
       Resource: 
-        - "arn:aws:s3:::fdsa-trigger-bucket"
-        - "arn:aws:s3:::fdsa-trigger-bucket/*"
+        - "arn:aws:s3:::fdsa-trigger-bucket1234"
+        - "arn:aws:s3:::fdsa-trigger-bucket1234/*"
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
 #    - Effect: "Allow"
@@ -65,13 +65,13 @@ provider:
 
 functions:
   filetrigger:
-    handler: build/handler.handleFileTrigger
+    handler: dist/es/handler.handleFileTrigger
     events:
       - s3:
-          bucket: fdsa-trigger-bucket # (name must be unique!!!) ${{self:custom.emailInboundBucket}}
+          bucket: fdsa-trigger-bucket1234 # (name must be unique!!!) ${{self:custom.emailInboundBucket}}
           event: s3:ObjectCreated:*
   hello:
-    handler: build/handler.hello
+    handler: dist/es/handler.hello
     events:
       - http:
           path: hello

@@ -1,13 +1,15 @@
 /**
- * The exports in this file can be set as "handlers" (entry points) for AWS Lambda functions; 
- * e.g. module.exports.hello in handler.js is accessible as "handler.hello". 
- * 
- * For automated Serverless deployment this is setup is managed in [serverless.yml](../../serverless.yml). 
+ * The exports in this file can be set as "handlers" (entry points) for AWS Lambda functions;
+ * e.g. module.exports.hello in handler.js is accessible as "handler.hello".
+ *
+ * For automated Serverless deployment this is setup is managed in [serverless.yml](../../serverless.yml).
  * Search for handler.hello to see how is is done.
  */ /** hack for https://github.com/TypeStrong/typedoc/issues/603 */
 
 import getFile = require('./s3-getfile')
+import parsexml = require('./parse-xml')
 
+import { parse } from 'querystring'
 // response object for Lambda Proxy integration; see https://serverless.com/framework/docs/providers/aws/events/apigateway/
 class lambdaResponse {
   statusCode: number = 200
@@ -37,6 +39,7 @@ export function handleFileTrigger(event: any, context: any, callback: any) {
 
   function handleFile(contents: any) {
     // do something with the file here
+
     console.log('File Contents: \n' + contents)
     // response.body.fileContents = contents;
   }
