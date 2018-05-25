@@ -135,7 +135,9 @@ AWS stores credentials in two files in folder "{userprofile}\\.aws"
 
 - Deployment:
 
-  - Run "serverless deploy --aws-profile [profilename]" command
+  - In file "serverless.yml" change bucket name to something unique. Example: "fdsa-trigger-bucket12" in any place you see "fdsa-trigger-bucket"
+  - In file "serverless.yml", under functions, for each function (filetrigger, hello), change handler to "dist/es/handler.[functionname]"
+  - Navigate to project folder then run "serverless deploy --aws-profile [profilename]" command
   - Go to AWS Lambda service, change region to oregon, select manage functions
   - There should be two functions which are also found in your "handler.ts" source file
   - One of these functions listens for an event from AWS S3, this event happens when a file is dropped into a specific bucket in S3.
