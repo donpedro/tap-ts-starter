@@ -13,12 +13,15 @@ var sp = mailparser.simpleParser // higher-level parser (easier to use, not as e
 import * as tapTypes from './tap-types'
 
 /** Convert the Mime message into json */
-export function parseItem(mimeEmail: Buffer) {
-  return sp(mimeEmail).then(function(emailObj) {
+export async function parseItem(mimeEmail: Buffer) {
+  let doWork = function(emailObj: any) {
     let rec = new tapTypes.streamRecord()
     rec.stream = 'email'
     rec.time_extracted = new Date()
     rec.record = emailObj
     return rec
-  })
+  }
+  let parsed = await sp(mimeEmail)
+  //sp returns a promise
+  return doWork(parsed)
 }

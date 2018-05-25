@@ -4,7 +4,7 @@
 
 /** CONFIG is a JSON file containing any configuration parameters the Tap needs.
  * https://github.com/singer-io/getting-started/blob/master/SPEC.md#configuration */
-export interface ConfigType {
+ export interface ConfigType {
   // suggested by spec
   start_date?: Date
   user_agent?: string
@@ -26,18 +26,18 @@ export interface allConfigs {
 export class streamSchema {
   readonly type: string = 'SCHEMA'
   /** string name of the stream -- matches the stream property of the RECORDS being described */
-  stream: string
+  stream: string|undefined
   /** Required.  A list of strings indicating which properties make up 
      * the primary key for this stream. Each item in the list must be the
      * name of a top-level property defined in the schema. A value for 
      * key_properties must be provided, but it may be an empty list to 
      * indicate that there is no primary key. */
-  key_properties: Array<string>
+  key_properties: Array<string>|undefined
   /** Optional. A list of strings indicating which properties the tap is using as bookmarks. 
      * Each item in the list must be the name of a top-level property defined in the schema. */
   bookmark_properties?: Array<string>
   /** A JSON Schema describing the data property of RECORDs from the same stream */
-  schema: object
+  schema: object|undefined
 }
 
 /** RECORD messages contain the data from the data stream.
@@ -45,11 +45,11 @@ export class streamSchema {
 export class streamRecord {
   readonly type: string = 'RECORD'
   /** string name of the stream -- matches the stream property of the SCHEMA property that describes this RECORD type*/
-  stream: string
+  stream: string|undefined
   /** Optional. The time this record was observed in the source. */
   time_extracted?: Date
   /** A JSON map containing a streamed data point */
-  record: object
+  record: object|undefined
 }
 
 /** STATE messages contain the state that the Tap wishes to persist. 
@@ -58,5 +58,5 @@ export class streamState {
   readonly type: string = 'STATE'
   /** Required. The JSON formatted state value. The semantics of a STATE value are not
      *  part of the specification, and should be determined independently by each Tap. */
-  value: object
+  value: object|undefined
 }
