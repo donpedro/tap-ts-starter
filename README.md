@@ -131,8 +131,6 @@ AWS stores credentials in two files in folder "{userprofile}\\.aws"
     - "CloudFrontFullAccess"
     - "AWSCloudFormationReadOnlyAccess"
 
-  - You should now be able to run the "serverless deploy --aws-profile [profilename]" command
-
 - Deployment:
 
   - In file "serverless.yml" change bucket name to something unique. Example: "fdsa-trigger-bucket12" in any place you see "fdsa-trigger-bucket"
