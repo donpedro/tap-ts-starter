@@ -1,4 +1,4 @@
-import DummyClass from '../src/tap-ts-starter'
+import DummyClass from '../src/tap-main'
 
 /**
  * Dummy test

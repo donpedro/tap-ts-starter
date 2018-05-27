@@ -7,10 +7,10 @@ import json from 'rollup-plugin-json';
 
 const pkg = require('./package.json')
 
-const libraryName = 'tap-ts-starter'
+const libraryName = 'tap-main'
 
 export default {
-  input: `dist/es/${libraryName}.js`,
+  input: `dist/js/${libraryName}.js`,
   output: [
 //    { file: pkg.main, name: camelCase(libraryName), format: 'umd' },
 	{ file: pkg.main, name: camelCase(libraryName), format: 'cjs' }, // we're targeting node (not browser) so our commonjs modules are fine
@@ -22,7 +22,7 @@ export default {
     'htmlparser2' // include externally to bypass "TypeError: Cannot read property 'DomHandler' of undefined" bug: https://github.com/fb55/htmlparser2/issues/223
   ],
   watch: {
-    include: 'dist/es/**',
+    include: 'dist/js/**',
   },
   plugins: [
     // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)

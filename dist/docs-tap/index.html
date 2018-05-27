@@ -65,17 +65,29 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<h1 id="tap-ts-starter">tap-ts-starter</h1>
-				<p>This is a <a href="https://singer.io">Singer</a> tap built with TypeScript/javascript that runs in Node and produces JSON-formatted data following the <a href="https://github.com/singer-io/getting-started/blob/master/SPEC.md">Singer spec</a>.</p>
+				<p>This is a <a href="https://singer.io">Singer</a> tap built with TypeScript/javascript that runs in Node and produces JSON-formatted data following the <a href="https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md#singer-specification">Singer spec</a>, and most of the spec is reflected in <a href="./src/tap-types.ts">tap-types.ts</a>.</p>
 				<p>This tap:</p>
 				<ul>
 					<li>Scans a local folder, treating the files it finds there as emails (MIME), parsing them into JSON with <a href="https://nodemailer.com/extras/mailparser/">Nodemailer.Mailparser</a></li>
 					<li>Outputs a schema along with the resulting json for each file</li>
 				</ul>
-				<p>This tap is also meant as a template to be forked for other uses. It separates the scanning of a resource collection (e.g. a folder) and the parsing of the individual resources (e.g. MIME files) into separate modules for easy drop-in replacement. A scanner module is included (scan-dir.ts for scanning local folders) and a parser module (parse-mime.ts for parsing emails).</p>
-				<p>This code path is documented <a href="dist/docs-tap/index.html">here</a> (or <a href="../docs-tap/index.html">here</a>).</p>
+				<p>This tap is also meant as a template to be forked for other uses. It separates the scanning of a resource collection (e.g. a folder) and the parsing of the individual resources (e.g. MIME files) into separate modules for easy drop-in replacement. A scanner module is included (scan-dir.ts for scanning local folders) and a parser module (parse-mime.ts for parsing emails) is included as well.</p>
+				<p>This code path is documented <a href="https://rawgit.com/donpedro/tap-ts-starter/master/dist/docs-tap/index.html">here</a>.</p>
+				<h3 id="new-school-code">New-School Code</h3>
+				<p>If you&#39;re used to JavaScript code, here are a few newer ES6/ES7/TypeScript code features we use that might be new to you:</p>
+				<ul>
+					<li><p><a href="https://www.sitepoint.com/es6-arrow-functions-new-fat-concise-syntax-javascript/">Arrow functions</a> are largely interchangable
+						with the more familiar <code>function</code> syntax:</p>
+						<p><code>let aFunction = () =&gt; {...</code></p>
+						<p>is roughly equal to</p>
+						<p><code>function aFunction() {...</code></p>
+					</li>
+					<li><a href="https://scotch.io/tutorials/javascript-promises-for-dummies">Promises</a> replace callbacks to clean up and clarify our code</li>
+					<li><a href="https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9">Async/await</a> builds on promises to make asynchronous code almost as simple (in many cases) as synchronous.</li>
+				</ul>
 				<h3 id="aws-lambda-deployment">AWS Lambda Deployment</h3>
 				<p>In addition to running as Singer taps, parsers can also be deployed as AWS Lambda functions. This allows you to take the exact same parser that your tap uses and deploy it to parse files one-at-at-time via triggers which run as they are dropped into a bucket. This functionality is enabled out of the box; the deploy script will create the bucket, deploy the parser as a Lambda function and add a trigger to call it when files are created in the bucket.</p>
-				<p>This code path is documented <a href="dist/docs-aws/index.html">here</a> (or <a href="../docs-aws/index.html">here</a>).</p>
+				<p>This code path is documented <a href="https://rawgit.com/donpedro/tap-ts-starter/master/dist/docs-aws/index.html">here</a>.</p>
 				<h3 id="quick-start">Quick Start</h3>
 				<ul>
 					<li>Dependencies: <ul>
@@ -86,8 +98,10 @@
 							<li>serverless - <code>npm install -g serverless</code> to install globally</li>
 						</ul>
 					</li>
-					<li>Clone: <code>git clone git@bitbucket.org:sbcotton/messages-template.git</code></li>
-					<li>After cloning the repo, be sure to run <code>npm install</code> to install npm packages</li>
+					<li>Clone: <code>git clone https://github.com/donpedro/tap-ts-starter.git</code><ul>
+							<li>After cloning the repo, be sure to run <code>npm install</code> to install npm packages</li>
+						</ul>
+					</li>
 					<li>Debug: with <a href="https://code.visualstudio.com/download">VScode</a> use <code>Open Folder</code> to open the project folder, then hit F5 to debug. This runs without compiling to javascript using <a href="https://www.npmjs.com/package/ts-node">ts-node</a></li>
 					<li>Test: <code>npm test</code> or <code>npm t</code></li>
 					<li>Compile documentation: <code>npm run build-docs-tap</code> and <code>npm run build-docs-aws</code></li>
@@ -97,9 +111,10 @@
 						</ul>
 					</li>
 					<li>More options are included from <a href="https://github.com/alexjoverm/typescript-library-starter.git">TypeScript Library Starter</a> and are documented <a href="starter-README.md">here</a></li>
+					<li>Run using included test data (be sure to build first): <code>node dist/tap-main.cjs.js --config testdata/emails.tap-config.json</code></li>
 				</ul>
 				<h3 id="notes">Notes</h3>
-				<p>This file is written using <a href="https://bitbucket.org/tutorials/markdowndemo">Markdown</a>.</p>
+				<p>Note: This document is written in <a href="https://daringfireball.net/projects/markdown/">Markdown</a>. We like to use <a href="https://typora.io/">Typora</a> and <a href="https://chrome.google.com/webstore/detail/markdown-preview-plus/febilkbfcbhebfnokafefeacimjdckgl?hl=en-US">Markdown Preview Plus</a> for our Markdown work.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -112,7 +127,7 @@
 						<span>Internals</span>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_tap_ts_starter_.html">"tap-<wbr>ts-<wbr>starter"</a>
+						<a href="modules/_tap_main_.html">"tap-<wbr>main"</a>
 					</li>
 					<li class="label tsd-is-external">
 						<span>Externals</span>

@@ -1,12 +1,14 @@
 /**
- * The exports in this file can be set as "handlers" (entry points) for AWS Lambda functions; 
- * e.g. module.exports.hello in handler.js is accessible as "handler.hello". 
- * 
- * For automated Serverless deployment this is setup is managed in [serverless.yml](../../serverless.yml). 
+ * The exports in this file can be set as "handlers" (entry points) for AWS Lambda functions;
+ * e.g. ```export function hello...``` in handler.js is accessible as "handler.hello".
+ *
+ * For automated Serverless deployment this is setup is managed in serverless.yml.
  * Search for handler.hello to see how is is done.
  */ /** hack for https://github.com/TypeStrong/typedoc/issues/603 */
 
 import getFile = require('./s3-getfile')
+import * as fse from 'fs-extra'
+import * as parseMime from './parse-mime'
 
 // response object for Lambda Proxy integration; see https://serverless.com/framework/docs/providers/aws/events/apigateway/
 class lambdaResponse {
@@ -36,14 +38,19 @@ export function handleFileTrigger(event: any, context: any, callback: any) {
   const response = new lambdaResponse()
 
   function handleFile(contents: any) {
-    // do something with the file here
     console.log('File Contents: \n' + contents)
-    // response.body.fileContents = contents;
+    parseMime.parseItem(contents).then(function(parsedObj: Object) {
+      console.log('Parsed Contents: \n' + JSON.stringify(parsedObj))
+      response.body = JSON.stringify(parsedObj)
+    })
   }
 
   if (typeof event === 'string') {
-    handleFile(event)
-    callback(null, response)
+    // if event is a string then we are running locally (because on AWS event is always an object) and the string represents a filename
+    fse.readFile(event).then(function(buffer: Buffer) {
+      handleFile(buffer)
+      callback(null, response)
+    })
   } else {
     getFile
       .getFilePromise(event.Records[0]) // this grabs only the first record, assuming we'll always only receive one at a time

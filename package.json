@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "description": "",
   "keywords": [],
-  "main": "dist/tap-ts-starter.cjs.js",
-  "module": "dist/tap-ts-starter.es5.js",
-  "typings": "dist/types/tap-ts-starter.d.ts",
+  "main": "dist/tap-main.cjs.js",
+  "module": "dist/tap-main.es2016.js",
+  "typings": "dist/types/tap-main.d.ts",
   "files": [
     "dist"
   ],
@@ -33,9 +33,9 @@
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
     "build-default-docs": "typedoc --out dist/docs --target es6 --theme minimal --mode file src",
-    "build-docs-tap": "typedoc --mode modules --out dist/docs-tap src/tap-ts-starter.ts --target es6",
+    "build-docs-tap": "typedoc --mode modules --out dist/docs-tap src/tap-main.ts --target es6",
     "build-docs-aws": "typedoc --mode modules --out dist/docs-aws src/handler.ts --target es6",
-    "run-rollup": "node dist/tap-ts-starter.cjs --config testdata/emails.tap-config.json"
+    "run-rollup": "node dist/tap-main.cjs --config testdata/emails.tap-config.json"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
@@ -82,7 +82,7 @@
     "@types/node": "^10.1.2",
     "aws-sdk": "^2.245.1",
     "colors": "^1.3.0",
-    "commitizen": "^2.9.6",
+    "commitizen": "^2.10.1",
     "coveralls": "^3.0.1",
     "cross-env": "^5.1.6",
     "cz-conventional-changelog": "^2.1.0",
@@ -116,7 +116,6 @@
     "fs-extra": "^6.0.1",
     "generate-schema": "^2.6.0",
     "lodash": "^4.17.10",
-    "mailparser": "^2.2.0",
-    "npm": "^6.0.1"
+    "mailparser": "^2.2.0"
   }
 }

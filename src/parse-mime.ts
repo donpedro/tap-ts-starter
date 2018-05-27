@@ -14,14 +14,11 @@ import * as tapTypes from './tap-types'
 
 /** Convert the Mime message into json */
 export async function parseItem(mimeEmail: Buffer) {
-  let doWork = function(emailObj: any) {
-    let rec = new tapTypes.streamRecord()
-    rec.stream = 'email'
-    rec.time_extracted = new Date()
-    rec.record = emailObj
-    return rec
-  }
-  let parsed = await sp(mimeEmail)
-  //sp returns a promise
-  return doWork(parsed)
+  let parsed = await sp(mimeEmail) // sp returns a promise; await waits for it, strips the result out and puts that result into the "parsed" variable
+
+  let rec = new tapTypes.streamRecord()
+  rec.stream = 'email'
+  rec.time_extracted = new Date()
+  rec.record = parsed
+  return rec
 }

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;parse-mime&quot; | tap-ts-starter</title>
+	<title>&quot;tap-main&quot; | tap-ts-starter</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_parse_mime_.html">&quot;parse-mime&quot;</a>
+					<a href="_tap_main_.html">&quot;tap-main&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;parse-mime&quot;</h1>
+			<h1>External module &quot;tap-main&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Parse MIME files using <a href="https://nodemailer.com/extras/mailparser/">Nodemailer.Mailparser</a></p>
+						<p>This module is the entry point for local execution as a Singer tap (see the <a href="https://github.com/singer-io/getting-started/blob/master/SPEC.md">spec</a>)</p>
 					</div>
 				</div>
 			</section>
@@ -77,61 +77,44 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-external tsd-is-not-exported">
-							<h3>Variables</h3>
+						<section class="tsd-index-section ">
+							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported"><a href="_parse_mime_.html#sp" class="tsd-kind-icon">sp</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_tap_main_.dummyclass.html" class="tsd-kind-icon">Dummy<wbr>Class</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-external">
+						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-external"><a href="_parse_mime_.html#parseitem" class="tsd-kind-icon">parse<wbr>Item</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_tap_main_.html#mainfunction" class="tsd-kind-icon">main<wbr>Function</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-external tsd-is-not-exported">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
-					<a name="sp" class="tsd-anchor"></a>
-					<h3>sp</h3>
-					<div class="tsd-signature tsd-kind-icon">sp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">simpleParser</span><span class="tsd-signature-symbol"> =&nbsp;mailparser.simpleParser</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/677b85b/src/parse-mime.ts#L11">parse-mime.ts:11</a></li>
-						</ul>
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
-					<a name="parseitem" class="tsd-anchor"></a>
-					<h3>parse<wbr>Item</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">parse<wbr>Item<span class="tsd-signature-symbol">(</span>mimeEmail<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_tap_types_.streamrecord.html" class="tsd-signature-type">streamRecord</a><span class="tsd-signature-symbol">&gt;</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="mainfunction" class="tsd-anchor"></a>
+					<h3>main<wbr>Function</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">main<wbr>Function<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/677b85b/src/parse-mime.ts#L16">parse-mime.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/677b85b/src/tap-main.ts#L22">tap-main.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Convert the Mime message into json</p>
+									<p>mainFunction is the main code to be run.</p>
 								</div>
+								<p>This code is in its own function because it uses &quot;await&quot; to call async functions, and
+								the await keyword can only be used in an async function.</p>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>mimeEmail: <span class="tsd-signature-type">Buffer</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_tap_types_.streamrecord.html" class="tsd-signature-type">streamRecord</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -146,13 +129,13 @@
 					<li class="label tsd-is-external">
 						<span>Internals</span>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="_tap_main_.html">"tap-<wbr>main"</a>
 					</li>
 					<li class="label tsd-is-external">
 						<span>Externals</span>
 					</li>
-					<li class="current tsd-kind-external-module tsd-is-external">
+					<li class=" tsd-kind-external-module tsd-is-external">
 						<a href="_parse_mime_.html">"parse-<wbr>mime"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
@@ -168,11 +151,11 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
-						<a href="_parse_mime_.html#sp" class="tsd-kind-icon">sp</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/_tap_main_.dummyclass.html" class="tsd-kind-icon">Dummy<wbr>Class</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
-						<a href="_parse_mime_.html#parseitem" class="tsd-kind-icon">parse<wbr>Item</a>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_tap_main_.html#mainfunction" class="tsd-kind-icon">main<wbr>Function</a>
 					</li>
 				</ul>
 			</nav>

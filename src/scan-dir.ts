@@ -1,8 +1,9 @@
 /**
- * A "scanner" scans a resource collection, parsing the items it finds using the parser passed in  (see the [spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md))
+ * A "scanner" scans a resource collection, parsing the items it finds using the parser passed in
+ * (see the [spec](https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md#singer-specification))
  *
  * In this case, we are scanning a directory and parsing the files inside.
- */ /** hack for https://github.com/TypeStrong/typedoc/issues/603 */
+ */ /** this is a dummy single-line comment needed for documentation build; a hack for https://github.com/TypeStrong/typedoc/issues/603 */
 
 /** fs-extra is a promise-enabled superset of the standard fs package */
 import * as fse from 'fs-extra'
@@ -18,14 +19,16 @@ var generateSchema = require('generate-schema') // typescript types aren't avail
  * @param configObjs
  * @param parser
  */
-export async function scanDir(configObjs: any, parser: any) {
+export async function scanDir(configObjs: tapTypes.allConfigs, parser: any) {
   let config = configObjs.config
-  let state = configObjs.state
-  let catalog = configObjs.catalog
+  // future config options
+  // let state = configObjs.state
+  // let catalog = configObjs.catalog
+
   // TODO: allow schema(s) to be passed in in config
   let schema: any = null
 
-  let filelist = await fse.readdir(config.target_folder)
+  let filelist: string[] = await fse.readdir(config.target_folder as string)
   let parsedObjs = await Promise.all(
     // return an array of promises, one per filename, for Promise.all to run asynchronously
     filelist.map(async function(filename, idx) {

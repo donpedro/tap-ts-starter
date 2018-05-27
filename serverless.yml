@@ -65,13 +65,13 @@ provider:
 
 functions:
   filetrigger:
-    handler: build/handler.handleFileTrigger
+    handler: build/js/handler.handleFileTrigger
     events:
       - s3:
           bucket: fdsa-trigger-bucket # (name must be unique!!!) ${{self:custom.emailInboundBucket}}
           event: s3:ObjectCreated:*
   hello:
-    handler: build/handler.hello
+    handler: build/js/handler.hello
     events:
       - http:
           path: hello

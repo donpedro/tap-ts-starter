@@ -5,22 +5,44 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug TypeScript",
+            "name": "tap-main: debug TS w/o transpile using ts-node",
             "type": "node",
             "request": "launch",
-            "args": ["src/tap-ts-starter.ts", "--config", "testdata/emails.tap-config.json"],
+            "args": ["src/tap-main.ts", "--config", "testdata/emails.tap-config.json"],
             "runtimeArgs": ["-r", "ts-node/register"],
             "cwd": "${workspaceRoot}",
             "protocol": "inspector",
-            "internalConsoleOptions": "openOnSessionStart"
-        },        {
+            "internalConsoleOptions": "openOnSessionStart",
+        },
+        {
+            "name": "aws-hello: debug TS w/o transpile using ts-node",
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}/src/tap-ts-starter.ts",
+            "args": ["src/aws-hello.ts"],
+            "runtimeArgs": ["-r", "ts-node/register"],
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector",
+            "internalConsoleOptions": "openOnSessionStart",
+        },
+        {
+            "name": "aws-handleFileTrigger: debug TS w/o transpile using ts-node",
+            "type": "node",
+            "request": "launch",
+            "args": ["src/aws-handleFileTrigger.ts", "testdata/emails/test.eml"],
+            "runtimeArgs": ["-r", "ts-node/register"],
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector",
+            "internalConsoleOptions": "openOnSessionStart",
+        },
+        {
+            "name": "tap-main: transpile to JS and run (slow)",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/tap-main.ts",
+            "args": ["--config", "testdata/emails.tap-config.json"],
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
-                "${workspaceFolder}/dist/es/**/*.js"
+                "${workspaceFolder}/dist/js/**/*.js"
             ]
         }
     ]
