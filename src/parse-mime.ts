@@ -22,3 +22,4 @@ export async function parseItem(mimeEmail: Buffer) {
   rec.record = parsed
   return rec
 }
+
