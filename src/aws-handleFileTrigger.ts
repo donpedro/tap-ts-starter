@@ -6,6 +6,7 @@
 /** this is a dummy single-line comment needed for documentation build; a hack for https://github.com/TypeStrong/typedoc/issues/603 */
 
 import * as handler from './handler'
+const event = './testdata/events/ObjectCreated.Put.json';
 
 function callback(error: any, result: Object) {
   if (error) {
@@ -20,4 +21,13 @@ function callback(error: any, result: Object) {
 let args = process.argv.slice(2) // remove unneeded boilerplate args
 // pass in the first command line parameter (which should be a file name) in place of AWS' "event" object. handleFileTrigger will
 // load that file as its input
-handler.handleFileTrigger(args[0], {}, callback)
+//handler.handleFileTrigger(args[0], {}, callback)
+var fs = require('fs');
+var content = fs.readFileSync(event);
+//console.log(content.toString());
+
+let myevent = JSON.parse(content);
+//console.log(myevent);
+//console.log(JSON.stringify(myevent.Records[0]))
+//let myevent = JSON.parse(event);
+handler.handleFileTrigger(myevent, {}, callback)

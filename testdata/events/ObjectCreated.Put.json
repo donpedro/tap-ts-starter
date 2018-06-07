@@ -1,0 +1,36 @@
+{
+	"Records": [{
+		"eventVersion": "2.0",
+		"eventSource": "aws:s3",
+		"awsRegion": "us-west-2",
+		"eventTime": "2018-06-06T19:17:44.006Z",
+		"eventName": "ObjectCreated:Put",
+		"userIdentity": {
+			"principalId": "AZUB6UGSI1ARO"
+		},
+		"requestParameters": {
+			"sourceIPAddress": "65.182.85.9"
+		},
+		"responseElements": {
+			"x-amz-request-id": "86C4E7DD9E8B507B",
+			"x-amz-id-2": "TbCReTmnu/Ky6A79JUnMzh7SVN7w/lPqaX53nqTrYG2X0KuMJ15cmGIlt5bVsrAAq5+7b4REAkQ="
+		},
+		"s3": {
+			"s3SchemaVersion": "1.0",
+			"configurationId": "3d677f92-ef2d-4651-9359-3bf2d9a7a89d",
+			"bucket": {
+				"name": "fdsa-trigger-bucket1234",
+				"ownerIdentity": {
+					"principalId": "AZUB6UGSI1ARO"
+				},
+				"arn": "arn:aws:s3:::fdsa-trigger-bucket1234"
+			},
+			"object": {
+				"key": "test.eml",
+				"size": 2534,
+				"eTag": "b9ceeaa2352eff28a72ff16f390f8ba1",
+				"sequencer": "005B183357EFE6AE9A"
+			}
+		}
+	}]
+}

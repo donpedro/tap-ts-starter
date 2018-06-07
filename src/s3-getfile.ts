@@ -5,7 +5,7 @@ import AWS = require('aws-sdk')
 import { S3 } from 'aws-sdk'
 //AWS.config.setPromisesDependency(Promise); // AWS will use bluebird promises since we overwrote global Promise var above with bluebird
 var s3 = new AWS.S3({ region: 'us-west-2' })
-
+import * as fse from 'fs-extra'
 // TODO: handle multiple records
 // exports.getFiles = function(awsEventRecords) {
 //     // call getFile for each object in Records array
@@ -14,7 +14,8 @@ var s3 = new AWS.S3({ region: 'us-west-2' })
 // takes an S3 event (http://docs.aws.amazon.com/AmazonS3/latest/dev/notification-content-structure.html)
 // describing a file; returns a promise that will return the file content as its data
 export function getFilePromise(event: any) {
-  console.log(JSON.stringify(event))
+  console.log("in s3-getfile");
+  //console.log(JSON.stringify(event))
 
   var notification = event.s3 //event.Records[0].s3;
   var notificationKey = notification.object.key
@@ -31,7 +32,8 @@ export function getFilePromise(event: any) {
   )
 
   // Retrieve the email from its bucket
-  return s3
+
+    return s3
     .getObject({ Bucket: notification.bucket.name, Key: notificationKey })
     .promise()
     .then(function(fileObject: object) {
@@ -46,4 +48,6 @@ export function getFilePromise(event: any) {
       console.log('getFilePromise error: ', error)
       return error
     })
+  
+  
 }

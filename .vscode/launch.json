@@ -44,6 +44,25 @@
             "outFiles": [
                 "${workspaceFolder}/dist/js/**/*.js"
             ]
+        },{
+            "name": "Debug mime parser",
+            "type": "node",
+            "request": "launch",
+            "args": ["src/debug-parse-mime.ts", "${file}"],
+            "runtimeArgs": ["-r", "ts-node/register"],
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector",
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "debug all eml",
+            "type": "node",
+            "request": "launch",
+            "args": ["src/debug-parse-mime-all.ts", "./testdata/emails"],
+            "runtimeArgs": ["-r", "ts-node/register"],
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector",
+            "internalConsoleOptions": "openOnSessionStart",
         }
     ]
 }
