@@ -1,0 +1,31 @@
+{
+	"type": "RECORD",
+	"stream": "email",
+	"time_extracted": "2018-06-11T19:53:27.999Z",
+	"record": {
+		"attachments": [],
+		"headers": {},
+		"text": "Plain email.\nHope it works well!\n\nMikel",
+		"textAsHtml": "<p>Plain email.<br/>Hope it works well!</p><p>Mikel</p>",
+		"subject": "Testing 123",
+		"date": "2008-11-22T04:04:59.000Z",
+		"to": {
+			"value": [{
+				"address": "raasdnil@gmail.com",
+				"name": "Mikel Lindsaar"
+			}],
+			"html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Mikel Lindsaar</span> &lt;<a href=\"mailto:raasdnil@gmail.com\" class=\"mp_address_email\">raasdnil@gmail.com</a>&gt;</span>",
+			"text": "Mikel Lindsaar <raasdnil@gmail.com>"
+		},
+		"from": {
+			"value": [{
+				"address": "test@lindsaar.net",
+				"name": "Mikel Lindsaar"
+			}],
+			"html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Mikel Lindsaar</span> &lt;<a href=\"mailto:test@lindsaar.net\" class=\"mp_address_email\">test@lindsaar.net</a>&gt;</span>",
+			"text": "Mikel Lindsaar <test@lindsaar.net>"
+		},
+		"messageId": "<6B7EC235-5B17-4CA8-B2B8-39290DEB43A3@test.lindsaar.net>",
+		"html": false
+	}
+}
