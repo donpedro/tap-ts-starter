@@ -1,10 +1,6 @@
 /**
-<<<<<<< HEAD
  * A "scanner" scans a resource collection, parsing the items it finds using the parser passed in
  * (see the [spec](https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md#singer-specification))
-=======
- * A "scanner" scans a resource collection, parsing the items it finds using the parser passed in  (see the [spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md))
->>>>>>> 15fabd4708587f788fe49d05415afd956a188bb1
  *
  * In this case, we are scanning a directory and parsing the files inside.
  */ /** this is a dummy single-line comment needed for documentation build; a hack for https://github.com/TypeStrong/typedoc/issues/603 */
@@ -50,7 +46,7 @@ export async function scanDir(configObjs: tapTypes.allConfigs, parser: any) {
     schm.stream = parsedObjs[0].stream
 
     // write the schema
-    console.log(JSON.stringify(schm))
+    //console.log(JSON.stringify(schm))
 
     // write the objects
     parsedObjs.forEach(function(parsedObj: any, idx: any) {

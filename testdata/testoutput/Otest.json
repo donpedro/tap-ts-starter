@@ -1,0 +1,31 @@
+{
+	"type": "RECORD",
+	"stream": "email",
+	"time_extracted": "2018-06-11T19:07:33.971Z",
+	"record": {
+		"attachments": [],
+		"headers": {},
+		"html": "<div dir=\"ltr\">test</div>\n",
+		"text": "test\n",
+		"textAsHtml": "<p>test</p>",
+		"subject": "test 714",
+		"date": "2016-07-05T00:14:28.000Z",
+		"to": {
+			"value": [{
+				"address": "production@test.com",
+				"name": ""
+			}],
+			"html": "<span class=\"mp_address_group\"><a href=\"mailto:production@test.com\" class=\"mp_address_email\">production@test.com</a></span>",
+			"text": "production@test.com"
+		},
+		"from": {
+			"value": [{
+				"address": "sender@sender.com",
+				"name": "Test Account"
+			}],
+			"html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Test Account</span> &lt;<a href=\"mailto:sender@sender.com\" class=\"mp_address_email\">sender@sender.com</a>&gt;</span>",
+			"text": "Test Account <sender@sender.com>"
+		},
+		"messageId": "<CAKVTp1bCWC-7pxoXW0HJb_6Ehbma7QYn_1Po5sGSO002nychNg@mail.gmail.com>"
+	}
+}

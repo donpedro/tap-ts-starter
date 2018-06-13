@@ -14,11 +14,11 @@ This code path is documented [here](https://rawgit.com/donpedro/tap-ts-starter/m
 If you're used to JavaScript code, here are a few newer ES6/ES7/TypeScript code features we use that might be new to you:
 * [Arrow functions](https://www.sitepoint.com/es6-arrow-functions-new-fat-concise-syntax-javascript/) are largely interchangable
  with the more familiar ```function``` syntax:
- 
+
  ```let aFunction = () => {...```
- 
+
  is roughly equal to
- 
+
  ```function aFunction() {...```
 * [Promises](https://scotch.io/tutorials/javascript-promises-for-dummies) replace callbacks to clean up and clarify our code
 * [Async/await](https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9) builds on promises to make asynchronous code almost as simple (in many cases) as synchronous.
@@ -154,3 +154,41 @@ AWS stores credentials in two files in folder "{userprofile}\\.aws"
     - Go to AWS S3 service
     - You should find a bucket called "fdsa-trigger-bucket", this is where you can drop a file that will be processed by the Lambda function.
     - Drop a file, Go to AWS CloudWatch, go to logs, go to the correct function, and you should see a log of the file that was dropped.
+
+### Testing
+
+We are using [Jest](https://facebook.github.io/jest/docs/en/getting-started.html) for our unit testing. 
+
+So far `src/parse-mime.ts` is the only module that is being tested. 
+
+In the folder `test` there is a file `parse-mime.test.ts` which is the Jest test case for testing the parser.
+
+It works by first reading two files:
+
+- One is the test data, in this case .eml files
+- Second is a .json file that contains an expected result if we ran `src/parse-mime.ts` on the test file
+
+These two files are passed into a "matcher" which is a jest function used to check that values meet a certain condition. We are checking if the expected result file matches what we actually get when we run `src/parse-mime.ts`.
+
+#### To add a test case: 
+
+- Add a .eml file to the `testdata/emails` folder
+  - Run the VS Code debugger with the configuration `Debug mime parser` while your new test file is open on the screen.
+  - Copy the output from the debug console
+  - Run the copied result through this [JSON-validator](https://jsonlint.com/) in order to check is JSON is valid and to format in a more readable way
+- Add a .json file to the `testdata/testoutput` folder
+- Take the newly formatted JSON and paste it into your test output file
+- In "email.test-config.json" there is an array of JSON objects. Each object has two properties: `testdata` and `expectedresult`. Add a new object with your new file names.
+- The tester will now run through all tests including the newly added test case
+
+To run the tester: run the command `npm test` 
+
+As the tester runs it will print which files are being tested
+
+Example: `Tested data input: test.eml with expected output: Otest.json`
+
+If a test case fails, the files it failed with will be the last files printed. 
+
+
+
+​	
