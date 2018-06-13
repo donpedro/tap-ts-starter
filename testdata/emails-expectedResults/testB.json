@@ -1,0 +1,40 @@
+{
+	"type": "REORD",
+	"stream": "email",
+	"time_extracted": "2018-06-12T20:25:32.481Z",
+	"record": {
+		"attachments": [],
+		"headers": {},
+		"subject": "Another PDF with 🎉 Unicode chars in it 🍿",
+		"date": "2005-05-10T17:26:39.000Z",
+		"to": {
+			"value": [{
+				"address": "xxxx@xxxx.com",
+				"name": ""
+			}, {
+				"address": "xxxx@xxxx.com",
+				"name": ""
+			}],
+			"html": "<span class=\"mp_address_group\"><a href=\"mailto:xxxx@xxxx.com\" class=\"mp_address_email\">xxxx@xxxx.com</a></span>, <span class=\"mp_address_group\"><a href=\"mailto:xxxx@xxxx.com\" class=\"mp_address_email\">xxxx@xxxx.com</a></span>",
+			"text": "xxxx@xxxx.com, xxxx@xxxx.com"
+		},
+		"from": {
+			"value": [{
+				"address": "xxxx@xxxx.com",
+				"name": "Test Tester"
+			}],
+			"html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Test Tester</span> &lt;<a href=\"mailto:xxxx@xxxx.com\" class=\"mp_address_email\">xxxx@xxxx.com</a>&gt;</span>",
+			"text": "Test Tester <xxxx@xxxx.com>"
+		},
+		"messageId": "<xxxx@xxxx.com>",
+		"replyTo": {
+			"value": [{
+				"address": "xxxx@xxxx.com",
+				"name": "Test Tester"
+			}],
+			"html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Test Tester</span> &lt;<a href=\"mailto:xxxx@xxxx.com\" class=\"mp_address_email\">xxxx@xxxx.com</a>&gt;</span>",
+			"text": "Test Tester <xxxx@xxxx.com>"
+		},
+		"html": false
+	}
+}
