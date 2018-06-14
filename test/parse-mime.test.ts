@@ -22,6 +22,10 @@ test('checking mime-parser.', async () => {
   expect.assertions(result.length) //says to expect result[0].len tests
   //which is the number of input test files - it should equal the num of expected result files
 
+  // wait for ts-jest 23.x--data-driven tests using "each": https://github.com/sapegin/jest-cheat-sheet/blob/master/Readme.md#data-driven-tests-jest-23
+  // instead of for loop on emails.test-config, use fse.readdir to grab files and then test with test.each
+  //test.each(filelist)('Tested data input: ' + result[i].testdata + ' with expected output: ' + result[i].expecteddata, async () => {
+
   for (let i = 0; i < result.length; i++) {
     let testdata = result[i].testdata //iterate through '../tap-ts-starter/testdata/emails'
     let expecteddata = result[i].expectedresult //interate through '../tap-ts-starter/testdata/testoutput'
