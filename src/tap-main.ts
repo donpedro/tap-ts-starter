@@ -24,12 +24,9 @@ async function mainFunction() {
   try {
     var configObjs = await configLoader.loadConfig()
     return scanDir.scanDir(configObjs, parseMime.parseItem)
-  } catch {
-    let error = (error: any): any => {
-      // Handle errors
-      console.error('Error: ', error)
-      return error
-    }
+  } catch (error) {
+    // Handle errors
+    console.error('Error: ', error)
   }
 }
 

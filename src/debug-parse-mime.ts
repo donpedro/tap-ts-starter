@@ -1,5 +1,5 @@
 import * as fse from 'fs-extra'
-import * as tapTypes from './tap-types'
+import * as tapTypes from './singer/tap-types'
 import * as parser from './parse-mime'
 
 var args = process.argv.slice(2) // remove unneeded boilerplate args
