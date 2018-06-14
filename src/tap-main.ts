@@ -7,7 +7,7 @@
 /** DummyClass is used in testing (see ```npm test``` in package.json) */
 export default class DummyClass {}
 
-import * as configLoader from './tap-load-config'
+import * as configLoader from './singer/tap-load-config'
 import * as parseMime from './parse-mime'
 export { parseItem } from './parse-mime'
 import * as scanDir from './scan-dir'

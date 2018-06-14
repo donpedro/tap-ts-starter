@@ -8,7 +8,7 @@
 
 import getFile = require('./s3-getfile')
 import * as fse from 'fs-extra'
-import * as parseMime from './parse-mime'
+import * as parseMime from '../parse-mime'
 
 // response object for Lambda Proxy integration; see https://serverless.com/framework/docs/providers/aws/events/apigateway/
 class lambdaResponse {

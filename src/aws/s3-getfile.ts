@@ -23,12 +23,7 @@ export function getFilePromise(event: any) {
   // console.log("SES Notification:\n", JSON.stringify(sesNotification, null,
   // 2));
 
-  console.log(
-    'notificationKey: ',
-    notificationKey,
-    '   Bucket: ',
-    notification.bucket.name
-  )
+  console.log('notificationKey: ', notificationKey, '   Bucket: ', notification.bucket.name)
 
   // Retrieve the email from its bucket
   return s3

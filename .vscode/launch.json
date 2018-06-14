@@ -18,7 +18,7 @@
             "name": "aws-hello: debug TS w/o transpile using ts-node",
             "type": "node",
             "request": "launch",
-            "args": ["src/aws-hello.ts"],
+            "args": ["src/aws/aws-hello.ts"],
             "runtimeArgs": ["-r", "ts-node/register"],
             "cwd": "${workspaceRoot}",
             "protocol": "inspector",

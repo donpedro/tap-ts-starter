@@ -10,7 +10,7 @@ import * as mailparser from 'mailparser'
 //var mp = mailparser.MailParser; // low-level parser
 var sp = mailparser.simpleParser // higher-level parser (easier to use, not as efficient)
 
-import * as tapTypes from './tap-types'
+import * as tapTypes from './singer/tap-types'
 
 /** Convert the Mime message into json */
 export async function parseItem(mimeEmail: Buffer) {
