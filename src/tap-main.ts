@@ -30,5 +30,5 @@ async function mainFunction() {
   }
 }
 
-// call mainFunction
-mainFunction()
+// call mainFunction if this is the main function (but not if it is just imported by another function)
+if (process.argv[1].includes('tap-main')) mainFunction()

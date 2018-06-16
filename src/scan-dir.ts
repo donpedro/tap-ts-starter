@@ -29,10 +29,15 @@ export async function scanDir(configObjs: tapTypes.allConfigs, parser: any) {
   let schema: any = null
 
   let filelist: string[] = await fse.readdir(config.target_folder as string)
+  // remove directories from file list
+  for (let i = filelist.length - 1; i > -1; i--) {
+    let stat = fse.lstatSync(config.target_folder + '/' + filelist[i])
+    if (stat.isDirectory()) filelist.splice(i, 1)
+  }
   let parsedObjs = await Promise.all(
     // return an array of promises, one per filename, for Promise.all to run asynchronously
     filelist.map(async function(filename, idx) {
-      let buffer = await fse.readFile(config.target_folder + '/' + filelist[idx])
+      let buffer = await fse.readFile(config.target_folder + '/' + filename)
       return parser(buffer, configObjs) // the parsing is done here
     })
   )

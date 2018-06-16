@@ -8,7 +8,7 @@
             "name": "tap-main: debug TS w/o transpile using ts-node",
             "type": "node",
             "request": "launch",
-            "args": ["src/tap-main.ts", "--config", "testdata/emails.tap-config.json"],
+            "args": ["src/tap-main.ts", "--config", "tap-config.json"],
             "runtimeArgs": ["-r", "ts-node/register"],
             "cwd": "${workspaceRoot}",
             "protocol": "inspector",
@@ -28,7 +28,7 @@
             "name": "aws-handleFileTrigger: debug TS w/o transpile using ts-node",
             "type": "node",
             "request": "launch",
-            "args": ["src/aws-handleFileTrigger.ts", "testdata/emails/test.eml"],
+            "args": ["src/aws-handleFileTrigger.ts", "testdata/test.eml"],
             "runtimeArgs": ["-r", "ts-node/register"],
             "cwd": "${workspaceRoot}",
             "protocol": "inspector",
@@ -39,17 +39,17 @@
             "type": "node",
             "request": "launch",
             "program": "${workspaceFolder}/src/tap-main.ts",
-            "args": ["--config", "testdata/emails.tap-config.json"],
+            "args": ["--config", "tap-config.json"],
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/dist/js/**/*.js"
             ]
         },
         {
-            "name": "Debug mime parser",
+            "name": "Debug parseItem using current opened test file",
             "type": "node",
             "request": "launch",
-            "args": ["src/debug-parse-mime.ts", "${file}"],
+            "args": ["src/debug-parseItem.ts", "${file}"],
             "runtimeArgs": ["-r", "ts-node/register"],
             "cwd": "${workspaceRoot}",
             "protocol": "inspector",

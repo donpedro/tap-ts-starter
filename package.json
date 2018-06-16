@@ -35,7 +35,7 @@
     "build-default-docs": "typedoc --out dist/docs --target es6 --theme minimal --mode file src",
     "build-docs-tap": "typedoc --mode modules --out dist/docs-tap src/singer/tap-main.ts --target es6",
     "build-docs-aws": "typedoc --mode modules --out dist/docs-aws src/aws/handler.ts --target es6",
-    "run-rollup": "node dist/tap-main.cjs --config testdata/emails.tap-config.json"
+    "run-rollup": "node dist/tap-main.cjs --config tap-config.json"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [

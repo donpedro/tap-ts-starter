@@ -1,10 +1,9 @@
-import * as mimeparse from '../src/parse-mime'
-import * as tapTypes from '../src/tap-types'
-const fse = require('fs-extra')
+import { parseItem } from '../src/tap-main'
+import fse from 'fs-extra'
 
-const inputDir = '../tap-ts-starter/testdata/emails'
-const resultDir = '../tap-ts-starter/testdata/emails-expectedResults'
-const config = './testdata//emails.test-config.json'
+const inputDir = 'testdata'
+const resultDir = 'testdata/expectedResults'
+const config = 'test/testdata-config.json'
 
 async function readConfigs(configuration) {
   try {
@@ -16,14 +15,14 @@ async function readConfigs(configuration) {
   }
 }
 
-test('checking mime-parser.', async () => {
+test('checking parseItem.', async () => {
   let result = await readConfigs(config)
 
   expect.assertions(result.length) //says to expect result[0].len tests
   //which is the number of input test files - it should equal the num of expected result files
 
   // wait for ts-jest 23.x--data-driven tests using "each": https://github.com/sapegin/jest-cheat-sheet/blob/master/Readme.md#data-driven-tests-jest-23
-  // instead of for loop on emails.test-config, use fse.readdir to grab files and then test with test.each
+  // instead of for loop on test-config, use fse.readdir to grab files and then test with test.each
   //test.each(filelist)('Tested data input: ' + result[i].testdata + ' with expected output: ' + result[i].expecteddata, async () => {
 
   for (let i = 0; i < result.length; i++) {
@@ -32,8 +31,8 @@ test('checking mime-parser.', async () => {
 
     console.log('Tested data input: ' + testdata + ' with expected output: ' + expecteddata)
 
-    let data = await fse.readFile(inputDir + '/' + testdata, 'utf8')
-    let parsedresult = await mimeparse.parseItem(data)
+    let data = await fse.readFile(inputDir + '/' + testdata)
+    let parsedresult = await parseItem(data)
     let expected = await fse.readJson(resultDir + '/' + expecteddata)
 
     expected.time_extracted = parsedresult.time_extracted.toISOString()
