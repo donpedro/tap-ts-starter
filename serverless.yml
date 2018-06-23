@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: messages-stub # NOTE: update this with your service name
+service: tap-starter # NOTE: update this with your service name, e.g. tap-email or tap-flat
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -19,8 +19,10 @@ service: messages-stub # NOTE: update this with your service name
 
 custom:
   accountId: ${{opt:accountId}} # I wish we could use ${AWS::AccountId} instead of passing this in, but Serverless chokes on ${saml:sub} in the Fn::Sub call that this requires...
-  prefix: ${{opt:prefix}}  # used as a prefix for bucket names. Needs to change between installations to avoid bucket name collisions. e.g. bmail or balemail.info
-  testBucket: ${{self:custom.prefix}}-test
+  prefix: ${{opt:prefix}}  # used as a prefix for bucket names. Needs to change between installations to avoid bucket name collisions. Use account owner name, e.g. alpha or jimmy
+  serviceName: ${{opt:serviceName}} # match with "service", above
+  testBucket: ${{self:custom.prefix}}-${{self:custom.serviceName}}-user-tests # demotest system tests are stored here
+  triggerBucket: ${{self:custom.prefix}}-${{self:custom.serviceName}}-trigger-bucket # drop a file in this bucket to trigger handleFileTrigger
 provider:
   name: aws
   runtime: nodejs8.10
@@ -39,8 +41,8 @@ provider:
       Action:
         - "s3:*"
       Resource: 
-        - "arn:aws:s3:::fdsa-trigger-bucket"
-        - "arn:aws:s3:::fdsa-trigger-bucket/*"
+        - "arn:aws:s3:::${{self:custom.triggerBucket}}"
+        - "arn:aws:s3:::${{self:custom.triggerBucket}}/*"
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
 #    - Effect: "Allow"
@@ -75,7 +77,7 @@ functions:
     handler: dist/js/aws/handler.handleFileTrigger
     events:
       - s3:
-          bucket: fdsa-trigger-bucket # (name must be unique!!!) ${{self:custom.emailInboundBucket}}
+          bucket: ${{self:custom.testBucket}}
           event: s3:ObjectCreated:*
   hello:
     handler: dist/js/aws/handler.hello
@@ -149,23 +151,24 @@ resources:
                   Effect: Allow
                   Action: "s3:*"                  
                   Resource:
-                    - "arn:aws:s3:::${{self:custom.dataBucket}}/messages/${saml:sub}"
-                    - "arn:aws:s3:::${{self:custom.dataBucket}}/messages/${saml:sub}/*"
-                    - "arn:aws:s3:::${{self:custom.dataBucket}}/rules/${saml:sub}"
-                    - "arn:aws:s3:::${{self:custom.dataBucket}}/rules/${saml:sub}/*"
-                    - "arn:aws:s3:::${{self:custom.sendBucket}}/${saml:sub}"
-                    - "arn:aws:s3:::${{self:custom.sendBucket}}/${saml:sub}/*"
-                    - "arn:aws:s3:::${{self:custom.entrybotInboundBucket}}/${saml:sub}"
-                    - "arn:aws:s3:::${{self:custom.entrybotInboundBucket}}/${saml:sub}/*"
+                    - "arn:aws:s3:::${{self:custom.testBucket}}/users/${saml:sub}"
+                    - "arn:aws:s3:::${{self:custom.testBucket}}/users/${saml:sub}/*"
                 - Sid: "AllowListBucketIfSpecificPrefixIsIncludedInRequest"
                   Action: "s3:ListBucket"
                   Effect: "Allow"
-                  Resource: "arn:aws:s3:::${{self:custom.dataBucket}}"
+                  Resource: "arn:aws:s3:::${{self:custom.testBucket}}"
                   Condition:
                     StringEquals:
                       "s3:prefix":
-                        - "messages/${saml:sub}"
-                        - "rules/${saml:sub}"
+                        - "users/${saml:sub}"
+                - Sid: "ReadOnlyAccessToOfficial"
+                  Effect: Allow
+                  Action:
+                    - "s3:ListBucket"
+                    - "s3:GetObject"
+                  Resource:
+                    - "arn:aws:s3:::${{self:custom.testBucket}}/official"
+                    - "arn:aws:s3:::${{self:custom.testBucket}}/official/*"
 #    NewResource:
 #      Type: AWS::S3::Bucket
 #      Properties:

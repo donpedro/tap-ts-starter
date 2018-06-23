@@ -11,3 +11,4 @@ dist/*
 parse-mime.ts
 compiled
 .awcache
+/.serverless
