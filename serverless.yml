@@ -17,9 +17,16 @@ service: messages-stub # NOTE: update this with your service name
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
+custom:
+  accountId: ${{opt:accountId}} # I wish we could use ${AWS::AccountId} instead of passing this in, but Serverless chokes on ${saml:sub} in the Fn::Sub call that this requires...
+  prefix: ${{opt:prefix}}  # used as a prefix for bucket names. Needs to change between installations to avoid bucket name collisions. e.g. bmail or balemail.info
+  testBucket: ${{self:custom.prefix}}-test
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs8.10
+  # by default AWS variables like ${saml:sub} use same format as Serverless variables like ${self:custom.prefix}
+  # We use variableSyntax here to change serverless vars to look instead like ${{self:custom.prefix}}
+  variableSyntax: '\${{([\s\S]+?)}}'
 
 # you can overwrite defaults here
   stage: dev
@@ -65,13 +72,13 @@ provider:
 
 functions:
   filetrigger:
-    handler: build/js/aws/handler.handleFileTrigger
+    handler: dist/js/aws/handler.handleFileTrigger
     events:
       - s3:
           bucket: fdsa-trigger-bucket # (name must be unique!!!) ${{self:custom.emailInboundBucket}}
           event: s3:ObjectCreated:*
   hello:
-    handler: build/js/aws/handler.hello
+    handler: dist/js/aws/handler.hello
     events:
       - http:
           path: hello
@@ -113,8 +120,52 @@ functions:
 #      variable2: value2
 
 # you can add CloudFormation resource templates here
-#resources:
-#  Resources:
+resources:
+ Resources:
+    # this role gives access for the UI. Needs to be referred to by auth0 rule after serverless deployment is completed
+    IamRoleBaleMailUser:
+      Type: AWS::IAM::Role
+      Properties:
+        AssumeRolePolicyDocument:
+          Version: "2012-10-17"
+          Statement: 
+            - Effect: Allow
+              Principal: 
+                Federated: "arn:aws:iam::${{self:custom.accountId}}:saml-provider/auth0-provider"
+              Action: "sts:AssumeRoleWithSAML"
+              Condition:
+                StringEquals: 
+                  "SAML:iss": "urn:sbcotton.auth0.com"
+        Policies:
+          - PolicyName: BaleMailUser
+            PolicyDocument:
+              Version: "2012-10-17"
+              Statement:
+                #
+                # S3 permissions: BaleMailUsers have a SAML token from Auth0. We give them permissions to access S3 buckets based on the saml:sub of each registered user;
+                # which is their userId as assigned by Auth0; they can access their own subfolders but nobody else's
+                #
+                - Sid: "AllowEverythingOnSpecificUserPath"
+                  Effect: Allow
+                  Action: "s3:*"                  
+                  Resource:
+                    - "arn:aws:s3:::${{self:custom.dataBucket}}/messages/${saml:sub}"
+                    - "arn:aws:s3:::${{self:custom.dataBucket}}/messages/${saml:sub}/*"
+                    - "arn:aws:s3:::${{self:custom.dataBucket}}/rules/${saml:sub}"
+                    - "arn:aws:s3:::${{self:custom.dataBucket}}/rules/${saml:sub}/*"
+                    - "arn:aws:s3:::${{self:custom.sendBucket}}/${saml:sub}"
+                    - "arn:aws:s3:::${{self:custom.sendBucket}}/${saml:sub}/*"
+                    - "arn:aws:s3:::${{self:custom.entrybotInboundBucket}}/${saml:sub}"
+                    - "arn:aws:s3:::${{self:custom.entrybotInboundBucket}}/${saml:sub}/*"
+                - Sid: "AllowListBucketIfSpecificPrefixIsIncludedInRequest"
+                  Action: "s3:ListBucket"
+                  Effect: "Allow"
+                  Resource: "arn:aws:s3:::${{self:custom.dataBucket}}"
+                  Condition:
+                    StringEquals:
+                      "s3:prefix":
+                        - "messages/${saml:sub}"
+                        - "rules/${saml:sub}"
 #    NewResource:
 #      Type: AWS::S3::Bucket
 #      Properties:
