@@ -13,7 +13,7 @@ var sp = mailparser.simpleParser // higher-level parser (easier to use, not as e
 import * as tapTypes from './singer/tap-types'
 
 /** Convert the Mime message into json */
-export async function parseItem(mimeEmail: Buffer) {
+export async function parseItem(mimeEmail: Buffer, configObjs?: tapTypes.allConfigs) {
   let parsed = await sp(mimeEmail) // sp returns a promise; await waits for it, strips the result out and puts that result into the "parsed" variable
 
   let rec = new tapTypes.streamRecord()

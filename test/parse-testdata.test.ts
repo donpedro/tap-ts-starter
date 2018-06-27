@@ -1,7 +1,7 @@
 import { parseItem } from '../src/tap-main'
 import fse from 'fs-extra'
 
-const inputDir = 'testdata'
+const inputDir = 'testdata/tests'
 const resultDir = 'testdata/expectedResults'
 const config = 'test/testdata-config.json'
 

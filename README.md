@@ -60,7 +60,7 @@ These two files are passed into a "matcher" which is a jest function used to che
 
 #### To add a test case: 
 
-- Add a test file to the `testdata` folder
+- Add a test file to the `testdata/tests` folder
   - Run the VS Code debugger with the configuration `Debug parseItem using current opened test file` while your new test file is open on the screen.
   - Copy the output from the debug console
   - Run the copied result through this [JSON-validator](https://jsonlint.com/) in order to check is JSON is valid and to format in a more readable way

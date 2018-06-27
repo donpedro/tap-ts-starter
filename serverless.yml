@@ -11,16 +11,16 @@
 #
 # Happy Coding!
 
-service: tap-starter # NOTE: update this with your service name, e.g. tap-email or tap-flat
+service: tap-starter # NOTE: update this with your service name, e.g. tap-email or tap-flat; also update "serviceName", below
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
 custom:
+  serviceName: tap-starter # match this with "service", above
   accountId: ${{opt:accountId}} # I wish we could use ${AWS::AccountId} instead of passing this in, but Serverless chokes on ${saml:sub} in the Fn::Sub call that this requires...
   prefix: ${{opt:prefix}}  # used as a prefix for bucket names. Needs to change between installations to avoid bucket name collisions. Use account owner name, e.g. alpha or jimmy
-  serviceName: ${{opt:serviceName}} # match with "service", above
   testBucket: ${{self:custom.prefix}}-${{self:custom.serviceName}}-user-tests # demotest system tests are stored here
   triggerBucket: ${{self:custom.prefix}}-${{self:custom.serviceName}}-trigger-bucket # drop a file in this bucket to trigger handleFileTrigger
 provider:
@@ -77,7 +77,7 @@ functions:
     handler: dist/js/aws/handler.handleFileTrigger
     events:
       - s3:
-          bucket: ${{self:custom.testBucket}}
+          bucket: ${{self:custom.triggerBucket}}
           event: s3:ObjectCreated:*
   hello:
     handler: dist/js/aws/handler.hello
@@ -88,6 +88,13 @@ functions:
           cors: true
       - http:
           path: hello
+          method: post
+          cors: true
+  doParse:
+    handler: dist/js/aws/handler.doParse
+    events:
+      - http:
+          path: doparse
           method: post
           cors: true
 #    The following are a few example events you can configure
@@ -124,6 +131,24 @@ functions:
 # you can add CloudFormation resource templates here
 resources:
  Resources:
+    # 
+    # Test bucket holds tests and expected responses, both Official and User tests; these are retrieved locally in ./testdata
+    #
+    TestBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${{self:custom.testBucket}}
+        CorsConfiguration:
+          CorsRules:
+            - AllowedHeaders:
+                - "*"
+              AllowedMethods:
+                - GET
+                - HEAD
+                - PUT
+                - DELETE
+              AllowedOrigins:
+                - "*"
     # this role gives access for the UI. Needs to be referred to by auth0 rule after serverless deployment is completed
     IamRoleBaleMailUser:
       Type: AWS::IAM::Role
