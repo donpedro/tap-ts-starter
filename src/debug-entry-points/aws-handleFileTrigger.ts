@@ -5,7 +5,7 @@
 
 /** this is a dummy single-line comment needed for documentation build; a hack for https://github.com/TypeStrong/typedoc/issues/603 */
 
-import * as handler from './handler'
+import * as handler from '../aws/handler'
 
 function callback(error: any, result: Object) {
   if (error) {
@@ -17,4 +17,7 @@ function callback(error: any, result: Object) {
   }
 }
 
-handler.hello({}, {}, callback)
+let args = process.argv.slice(2) // remove unneeded boilerplate args
+// pass in the first command line parameter (which should be a file name) in place of AWS' "event" object. handleFileTrigger will
+// load that file as its input
+handler.handleFileTrigger(args[0], {}, callback)
