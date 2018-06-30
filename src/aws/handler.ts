@@ -26,7 +26,7 @@ export function hello(event: any, context: any, callback: any) {
   const response = new lambdaResponse()
   response.body = JSON.stringify({
     message: 'Hello! Your function executed successfully!',
-    input: event
+    lambdaEvent: event
   })
 
   callback(null, response)
@@ -41,10 +41,11 @@ export async function doParse(event: any, context: any, callback: any) {
 
   try {
     const body = JSON.parse(event.body)
-    //console.log(body);
+    //console.log(event); // uncomment this to dump a copy of the "lambdaEvent" to CloudWatch log, so you can update your aws-*.ts file with a good "test" copy of that event...
+    // ..that contains the custom fields needed by your particular parser
 
     let toParse = body.toParse
-    let config = <tapTypes.allConfigs>body.config
+    let config = <tapTypes.allConfigs>JSON.parse(body.config)
     response.body = JSON.stringify(await parseItem(toParse, config))
     callback(null, response)
   } catch (err) {

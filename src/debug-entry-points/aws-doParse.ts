@@ -19,6 +19,7 @@ function callback(error: any, result: Object) {
 
 /**
  * lambdaEvent is from a Lambda POST call; body is the "request body", or payload, of the POST call--sent by the caller
+ * Retrieve a new version of this--search for "lambdaEvent" in handler.ts
  */
 let lambdaEvent = {
   resource: '/doParse',
@@ -55,7 +56,7 @@ let lambdaEvent = {
     apiId: 'km898b6ahb'
   },
   body:
-    '{\n "toParse": "Mime-Version: 1.0 (Apple Message framework v730)\\r\\nContent-Type: multipart/mixed; boundary=Apple-Mail-13-196941151\\r\\nMessage-Id: <9169D984-4E0B-45EF-82D4-8F5E53AD7012@example.com>\\r\\nFrom: foo@example.com\\r\\nSubject: testing\\r\\nDate: Mon, 6 Jun 2005 22:21:22 +0200\\r\\nTo: blah@example.com\\r\\n\\r\\n\\r\\n--Apple-Mail-13-196941151\\r\\nContent-Transfer-Encoding: quoted-printable\\r\\nContent-Type: text/plain;\\r\\n\\tcharset=ISO-8859-1;\\r\\n\\tdelsp=yes;\\r\\n\\tformat=flowed\\r\\n\\r\\nThis is the first part.\\r\\n\\r\\n--Apple-Mail-13-196941151\\r\\nContent-Type: text/plain; name=This is a test.txt\\r\\nContent-Transfer-Encoding: 7bit\\r\\nContent-Disposition: attachment;\\r\\n\\tfilename=This is a test.txt\\r\\n\\r\\nHi there.\\r\\n\\r\\n--Apple-Mail-13-196941151--",\n "config": "{\\r\\n    \\"start_date\\" : \\"2017-01-01T00:00:00Z\\",\\r\\n    \\"user_agent\\" : \\"Stitch (+support@stitchdata.com)\\"\\r\\n  }"\n}',
+    '{"toParse":"Mime-Version: 1.0 (Apple Message framework v730)\\r\\nContent-Type: multipart/mixed; boundary=Apple-Mail-13-196941151\\r\\nMessage-Id: <9169D984-4E0B-45EF-82D4-8F5E53AD7012@example.com>\\r\\nFrom: foo@example.com\\r\\nSubject: testing\\r\\nDate: Mon, 6 Jun 2005 22:21:22 +0200\\r\\nTo: blah@example.com\\r\\n\\r\\n\\r\\n--Apple-Mail-13-196941151\\r\\nContent-Transfer-Encoding: quoted-printable\\r\\nContent-Type: text/plain;\\r\\n\\tcharset=ISO-8859-1;\\r\\n\\tdelsp=yes;\\r\\n\\tformat=flowed\\r\\n\\r\\nThis is the first part.\\r\\n\\r\\n--Apple-Mail-13-196941151\\r\\nContent-Type: text/plain; name=This is a test.txt\\r\\nContent-Transfer-Encoding: 7bit\\r\\nContent-Disposition: attachment;\\r\\n\\tfilename=This is a test.txt\\r\\n\\r\\nHi there.\\r\\n\\r\\n--Apple-Mail-13-196941151--",\n"config":"{\\"config\\":{\\r\\n    \\"target_folder\\" : \\"./testdata\\",\\r\\n    \\"start_date\\" : \\"2017-01-01T00:00:00Z\\",\\r\\n    \\"user_agent\\" : \\"Stitch (+support@stitchdata.com)\\"\\r\\n  }\\r\\n}"\n}',
   isBase64Encoded: false
 }
 
