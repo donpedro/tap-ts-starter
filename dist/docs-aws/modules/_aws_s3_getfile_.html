@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>streamRecord | tap-ts-starter</title>
+	<title>&quot;aws/s3-getfile&quot; | tap-ts-starter</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,107 +56,72 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_tap_types_.html">&quot;tap-types&quot;</a>
-				</li>
-				<li>
-					<a href="_tap_types_.streamrecord.html">streamRecord</a>
+					<a href="_aws_s3_getfile_.html">&quot;aws/s3-getfile&quot;</a>
 				</li>
 			</ul>
-			<h1>Class streamRecord</h1>
+			<h1>External module &quot;aws/s3-getfile&quot;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>RECORD messages contain the data from the data stream.
-						<a href="https://github.com/singer-io/getting-started/blob/master/SPEC.md#record">https://github.com/singer-io/getting-started/blob/master/SPEC.md#record</a></p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<span class="target">streamRecord</span>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-external">
-							<h3>Properties</h3>
+						<section class="tsd-index-section tsd-is-external tsd-is-not-exported">
+							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_tap_types_.streamrecord.html#record" class="tsd-kind-icon">record</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_tap_types_.streamrecord.html#stream" class="tsd-kind-icon">stream</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_tap_types_.streamrecord.html#time_extracted" class="tsd-kind-icon">time_<wbr>extracted</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_tap_types_.streamrecord.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported"><a href="_aws_s3_getfile_.html#s3" class="tsd-kind-icon">s3</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-external"><a href="_aws_s3_getfile_.html#getfilepromise" class="tsd-kind-icon">get<wbr>File<wbr>Promise</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external tsd-is-not-exported">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+					<a name="s3" class="tsd-anchor"></a>
+					<h3>s3</h3>
+					<div class="tsd-signature tsd-kind-icon">s3<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">S3</span><span class="tsd-signature-symbol"> =&nbsp;new AWS.S3({ region: &#x27;us-west-2&#x27; })</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/da5f8f2/src/aws/s3-getfile.ts#L7">aws/s3-getfile.ts:7</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-external">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
-					<a name="record" class="tsd-anchor"></a>
-					<h3>record</h3>
-					<div class="tsd-signature tsd-kind-icon">record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/677b85b/src/tap-types.ts#L52">tap-types.ts:52</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A JSON map containing a streamed data point</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
-					<a name="stream" class="tsd-anchor"></a>
-					<h3>stream</h3>
-					<div class="tsd-signature tsd-kind-icon">stream<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/677b85b/src/tap-types.ts#L48">tap-types.ts:48</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>string name of the stream -- matches the stream property of the SCHEMA property that describes this RECORD type</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
-					<a name="time_extracted" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> time_<wbr>extracted</h3>
-					<div class="tsd-signature tsd-kind-icon">time_<wbr>extracted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/677b85b/src/tap-types.ts#L50">tap-types.ts:50</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Optional. The time this record was observed in the source.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
-					<a name="type" class="tsd-anchor"></a>
-					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;RECORD&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/677b85b/src/tap-types.ts#L46">tap-types.ts:46</a></li>
-						</ul>
-					</aside>
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
+					<a name="getfilepromise" class="tsd-anchor"></a>
+					<h3>get<wbr>File<wbr>Promise</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>File<wbr>Promise<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/da5f8f2/src/aws/s3-getfile.ts#L16">aws/s3-getfile.ts:16</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -170,59 +135,38 @@
 						<span>Internals</span>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_tap_main_.html">"tap-<wbr>main"</a>
+						<a href="_aws_handler_.html">"aws/handler"</a>
 					</li>
 					<li class="label tsd-is-external">
 						<span>Externals</span>
 					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="../modules/_parse_mime_.html">"parse-<wbr>mime"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="../modules/_scan_dir_.html">"scan-<wbr>dir"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="../modules/_tap_load_config_.html">"tap-<wbr>load-<wbr>config"</a>
-					</li>
 					<li class="current tsd-kind-external-module tsd-is-external">
-						<a href="../modules/_tap_types_.html">"tap-<wbr>types"</a>
+						<a href="_aws_s3_getfile_.html">"aws/s3-<wbr>getfile"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="_parse_mime_.html">"parse-<wbr>mime"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="_scan_dir_.html">"scan-<wbr>dir"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="_singer_tap_load_config_.html">"singer/tap-<wbr>load-<wbr>config"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="_singer_tap_types_.html">"singer/tap-<wbr>types"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="_tap_main_.html">"tap-<wbr>main"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-is-external">
-						<a href="_tap_types_.streamrecord.html" class="tsd-kind-icon">stream<wbr>Record</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
-								<a href="_tap_types_.streamrecord.html#record" class="tsd-kind-icon">record</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
-								<a href="_tap_types_.streamrecord.html#stream" class="tsd-kind-icon">stream</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
-								<a href="_tap_types_.streamrecord.html#time_extracted" class="tsd-kind-icon">time_<wbr>extracted</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
-								<a href="_tap_types_.streamrecord.html#type" class="tsd-kind-icon">type</a>
-							</li>
-						</ul>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+						<a href="_aws_s3_getfile_.html#s3" class="tsd-kind-icon">s3</a>
 					</li>
-				</ul>
-				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-external">
-						<a href="_tap_types_.streamschema.html" class="tsd-kind-icon">stream<wbr>Schema</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-external">
-						<a href="_tap_types_.streamstate.html" class="tsd-kind-icon">stream<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
-						<a href="../interfaces/_tap_types_.configtype.html" class="tsd-kind-icon">Config<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
-						<a href="../interfaces/_tap_types_.allconfigs.html" class="tsd-kind-icon">all<wbr>Configs</a>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
+						<a href="_aws_s3_getfile_.html#getfilepromise" class="tsd-kind-icon">get<wbr>File<wbr>Promise</a>
 					</li>
 				</ul>
 			</nav>

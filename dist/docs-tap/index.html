@@ -106,13 +106,39 @@
 					<li>Test: <code>npm test</code> or <code>npm t</code></li>
 					<li>Compile documentation: <code>npm run build-docs-tap</code> and <code>npm run build-docs-aws</code></li>
 					<li>Compile to javascript: <code>npm run build</code></li>
-					<li>Deploy: <code>serverless deploy --aws-profile [profilename]</code><ul>
+					<li>Deploy to AWS using serverless: <code>serverless deploy --aws-profile [profilename]</code><ul>
 							<li>depends on <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">aws-cli</a> <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html">named profiles</a></li>
+							<li>additional setup is necessary; details are <a href="aws-deploy.md">here</a> (adapted from <a href="https://github.com/theSaltyConditional/tap-ts-starter">this fork</a>, s/o to <a href="https://github.com/theSaltyConditional">theSaltyConditional</a>)</li>
 						</ul>
 					</li>
 					<li>More options are included from <a href="https://github.com/alexjoverm/typescript-library-starter.git">TypeScript Library Starter</a> and are documented <a href="starter-README.md">here</a></li>
-					<li>Run using included test data (be sure to build first): <code>node dist/tap-main.cjs.js --config testdata/emails.tap-config.json</code></li>
+					<li>Run using included test data (be sure to build first): <code>node dist/tap-main.cjs.js --config tap-config.json</code></li>
 				</ul>
+				<h3 id="testing">Testing</h3>
+				<p>We are using <a href="https://facebook.github.io/jest/docs/en/getting-started.html">Jest</a> for our testing. We run each file in <code>testdata</code> against <code>parseItem</code>, which is the current parser, declared in tap-main.ts. This is done in <code>test/parse-testdata.test.ts</code> which is the Jest test case for testing the parser.</p>
+				<p>It works by first reading two files:</p>
+				<ul>
+					<li>First is the test data file, is in the <code>testdata</code> folder</li>
+					<li>Second is a .json file that contains an expected result from running <code>parseItem</code> on the corresponding test file</li>
+				</ul>
+				<p>These two files are passed into a &quot;matcher&quot; which is a jest function used to check that values meet a certain condition. We are checking if the expected result file matches what we actually get when we run <code>parseItem</code>.</p>
+				<h4 id="to-add-a-test-case-">To add a test case:</h4>
+				<ul>
+					<li>Add a test file to the <code>testdata/tests</code> folder<ul>
+							<li>Run the VS Code debugger with the configuration <code>Debug parseItem using current opened test file</code> while your new test file is open on the screen.</li>
+							<li>Copy the output from the debug console</li>
+							<li>Run the copied result through this <a href="https://jsonlint.com/">JSON-validator</a> in order to check is JSON is valid and to format in a more readable way</li>
+						</ul>
+					</li>
+					<li>Add a .json file to the <code>testdata/expectedResults</code> folder</li>
+					<li>Take the newly formatted JSON and paste it into your test output file</li>
+					<li>In &quot;test-config.json&quot; there is an array of JSON objects. Each object has two properties: <code>testdata</code> and <code>expectedresult</code>. Add a new object with your new file names.</li>
+					<li>The tester will now run through all tests including the newly added test case</li>
+				</ul>
+				<p>To run the tester: run the command <code>npm test</code> </p>
+				<p>As the tester runs it will print which files are being tested</p>
+				<p>Example: <code>Tested data input: test.eml with expected output: test.json</code></p>
+				<p>If a test case fails, the files it failed with will be the last files printed. </p>
 				<h3 id="notes">Notes</h3>
 				<p>Note: This document is written in <a href="https://daringfireball.net/projects/markdown/">Markdown</a>. We like to use <a href="https://typora.io/">Typora</a> and <a href="https://chrome.google.com/webstore/detail/markdown-preview-plus/febilkbfcbhebfnokafefeacimjdckgl?hl=en-US">Markdown Preview Plus</a> for our Markdown work.</p>
 			</div>
@@ -139,10 +165,10 @@
 						<a href="modules/_scan_dir_.html">"scan-<wbr>dir"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_tap_load_config_.html">"tap-<wbr>load-<wbr>config"</a>
+						<a href="modules/_singer_tap_load_config_.html">"singer/tap-<wbr>load-<wbr>config"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_tap_types_.html">"tap-<wbr>types"</a>
+						<a href="modules/_singer_tap_types_.html">"singer/tap-<wbr>types"</a>
 					</li>
 				</ul>
 			</nav>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;tap-types&quot; | tap-ts-starter</title>
+	<title>streamState | tap-ts-starter</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_tap_types_.html">&quot;tap-types&quot;</a>
+					<a href="../modules/_singer_tap_types_.html">&quot;singer/tap-types&quot;</a>
+				</li>
+				<li>
+					<a href="_singer_tap_types_.streamstate.html">streamState</a>
 				</li>
 			</ul>
-			<h1>External module &quot;tap-types&quot;</h1>
+			<h1>Class streamState</h1>
 		</div>
 	</div>
 </header>
@@ -69,30 +72,59 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Types from Singer spec
-						<a href="https://github.com/singer-io/getting-started/blob/master/SPEC.md">https://github.com/singer-io/getting-started/blob/master/SPEC.md</a></p>
+						<p>STATE messages contain the state that the Tap wishes to persist.
+						<a href="https://github.com/singer-io/getting-started/blob/master/SPEC.md#state-1">https://github.com/singer-io/getting-started/blob/master/SPEC.md#state-1</a></p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">streamState</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section tsd-is-external">
-							<h3>Classes</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-external-module tsd-is-external"><a href="../classes/_tap_types_.streamrecord.html" class="tsd-kind-icon">stream<wbr>Record</a></li>
-								<li class="tsd-kind-class tsd-parent-kind-external-module tsd-is-external"><a href="../classes/_tap_types_.streamschema.html" class="tsd-kind-icon">stream<wbr>Schema</a></li>
-								<li class="tsd-kind-class tsd-parent-kind-external-module tsd-is-external"><a href="../classes/_tap_types_.streamstate.html" class="tsd-kind-icon">stream<wbr>State</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_singer_tap_types_.streamstate.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_singer_tap_types_.streamstate.html#value" class="tsd-kind-icon">value</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-external">
-							<h3>Interfaces</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_tap_types_.configtype.html" class="tsd-kind-icon">Config<wbr>Type</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_tap_types_.allconfigs.html" class="tsd-kind-icon">all<wbr>Configs</a></li>
-							</ul>
-						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="type" class="tsd-anchor"></a>
+					<h3>type</h3>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;STATE&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/da5f8f2/src/singer/tap-types.ts#L58">singer/tap-types.ts:58</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="value" class="tsd-anchor"></a>
+					<h3>value</h3>
+					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/da5f8f2/src/singer/tap-types.ts#L61">singer/tap-types.ts:61</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Required. The JSON formatted state value. The semantics of a STATE value are not
+							part of the specification, and should be determined independently by each Tap.</p>
+						</div>
 					</div>
 				</section>
 			</section>
@@ -107,41 +139,59 @@
 						<span>Internals</span>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_tap_main_.html">"tap-<wbr>main"</a>
+						<a href="../modules/_aws_handler_.html">"aws/handler"</a>
 					</li>
 					<li class="label tsd-is-external">
 						<span>Externals</span>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="_parse_mime_.html">"parse-<wbr>mime"</a>
+						<a href="../modules/_aws_s3_getfile_.html">"aws/s3-<wbr>getfile"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="_scan_dir_.html">"scan-<wbr>dir"</a>
+						<a href="../modules/_parse_mime_.html">"parse-<wbr>mime"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="_tap_load_config_.html">"tap-<wbr>load-<wbr>config"</a>
+						<a href="../modules/_scan_dir_.html">"scan-<wbr>dir"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_singer_tap_load_config_.html">"singer/tap-<wbr>load-<wbr>config"</a>
 					</li>
 					<li class="current tsd-kind-external-module tsd-is-external">
-						<a href="_tap_types_.html">"tap-<wbr>types"</a>
+						<a href="../modules/_singer_tap_types_.html">"singer/tap-<wbr>types"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_tap_main_.html">"tap-<wbr>main"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-external">
-						<a href="../classes/_tap_types_.streamrecord.html" class="tsd-kind-icon">stream<wbr>Record</a>
+						<a href="_singer_tap_types_.streamrecord.html" class="tsd-kind-icon">stream<wbr>Record</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-external">
-						<a href="../classes/_tap_types_.streamschema.html" class="tsd-kind-icon">stream<wbr>Schema</a>
+						<a href="_singer_tap_types_.streamschema.html" class="tsd-kind-icon">stream<wbr>Schema</a>
 					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-external">
-						<a href="../classes/_tap_types_.streamstate.html" class="tsd-kind-icon">stream<wbr>State</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-is-external">
+						<a href="_singer_tap_types_.streamstate.html" class="tsd-kind-icon">stream<wbr>State</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_singer_tap_types_.streamstate.html#type" class="tsd-kind-icon">type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_singer_tap_types_.streamstate.html#value" class="tsd-kind-icon">value</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+						<a href="../interfaces/_singer_tap_types_.configtype.html" class="tsd-kind-icon">Config<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
-						<a href="../interfaces/_tap_types_.configtype.html" class="tsd-kind-icon">Config<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
-						<a href="../interfaces/_tap_types_.allconfigs.html" class="tsd-kind-icon">all<wbr>Configs</a>
+						<a href="../interfaces/_singer_tap_types_.allconfigs.html" class="tsd-kind-icon">all<wbr>Configs</a>
 					</li>
 				</ul>
 			</nav>

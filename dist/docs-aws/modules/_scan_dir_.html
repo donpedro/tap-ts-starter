@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>streamRecord | tap-ts-starter</title>
+	<title>&quot;scan-dir&quot; | tap-ts-starter</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_tap_types_.html">&quot;tap-types&quot;</a>
-				</li>
-				<li>
-					<a href="_tap_types_.streamrecord.html">streamRecord</a>
+					<a href="_scan_dir_.html">&quot;scan-dir&quot;</a>
 				</li>
 			</ul>
-			<h1>Class streamRecord</h1>
+			<h1>External module &quot;scan-dir&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -72,91 +69,87 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>RECORD messages contain the data from the data stream.
-						<a href="https://github.com/singer-io/getting-started/blob/master/SPEC.md#record">https://github.com/singer-io/getting-started/blob/master/SPEC.md#record</a></p>
+						<p>A &quot;scanner&quot; scans a resource collection, parsing the items it finds using the parser passed in
+						(see the <a href="https://github.com/singer-io/getting-started/blob/master/docs/SPEC.md#singer-specification">spec</a>)</p>
 					</div>
+					<p>In this case, we are scanning a directory and parsing the files inside.</p>
 				</div>
-			</section>
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<span class="target">streamRecord</span>
-					</li>
-				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-external">
-							<h3>Properties</h3>
+						<section class="tsd-index-section tsd-is-external tsd-is-not-exported">
+							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_tap_types_.streamrecord.html#record" class="tsd-kind-icon">record</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_tap_types_.streamrecord.html#stream" class="tsd-kind-icon">stream</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_tap_types_.streamrecord.html#time_extracted" class="tsd-kind-icon">time_<wbr>extracted</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_tap_types_.streamrecord.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported"><a href="_scan_dir_.html#generateschema" class="tsd-kind-icon">generate<wbr>Schema</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-external"><a href="_scan_dir_.html#scandir" class="tsd-kind-icon">scan<wbr>Dir</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external tsd-is-not-exported">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+					<a name="generateschema" class="tsd-anchor"></a>
+					<h3>generate<wbr>Schema</h3>
+					<div class="tsd-signature tsd-kind-icon">generate<wbr>Schema<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;require(&#x27;generate-schema&#x27;)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/da5f8f2/src/scan-dir.ts#L13">scan-dir.ts:13</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>generate json-schemas for our records, if needed</p>
+						</div>
+					</div>
+				</section>
+			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-external">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
-					<a name="record" class="tsd-anchor"></a>
-					<h3>record</h3>
-					<div class="tsd-signature tsd-kind-icon">record<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/677b85b/src/tap-types.ts#L52">tap-types.ts:52</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A JSON map containing a streamed data point</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
-					<a name="stream" class="tsd-anchor"></a>
-					<h3>stream</h3>
-					<div class="tsd-signature tsd-kind-icon">stream<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/677b85b/src/tap-types.ts#L48">tap-types.ts:48</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>string name of the stream -- matches the stream property of the SCHEMA property that describes this RECORD type</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
-					<a name="time_extracted" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> time_<wbr>extracted</h3>
-					<div class="tsd-signature tsd-kind-icon">time_<wbr>extracted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/677b85b/src/tap-types.ts#L50">tap-types.ts:50</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Optional. The time this record was observed in the source.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
-					<a name="type" class="tsd-anchor"></a>
-					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;RECORD&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/677b85b/src/tap-types.ts#L46">tap-types.ts:46</a></li>
-						</ul>
-					</aside>
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
+					<a name="scandir" class="tsd-anchor"></a>
+					<h3>scan<wbr>Dir</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">scan<wbr>Dir<span class="tsd-signature-symbol">(</span>configObjs<span class="tsd-signature-symbol">: </span><a href="../interfaces/_singer_tap_types_.allconfigs.html" class="tsd-signature-type">allConfigs</a>, parser<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/donpedro/tap-ts-starter/blob/da5f8f2/src/scan-dir.ts#L22">scan-dir.ts:22</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Scan a folder, running parser on each file it finds</p>
+									<ul>
+										<li>TODO: implement configObjs.state and configObjs.catalog, which are just stubs for now</li>
+										<li>TODO: use interfaces instead of &quot;any&quot; here</li>
+									</ul>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>configObjs: <a href="../interfaces/_singer_tap_types_.allconfigs.html" class="tsd-signature-type">allConfigs</a></h5>
+								</li>
+								<li>
+									<h5>parser: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -170,56 +163,38 @@
 						<span>Internals</span>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_handler_.html">"handler"</a>
+						<a href="_aws_handler_.html">"aws/handler"</a>
 					</li>
 					<li class="label tsd-is-external">
 						<span>Externals</span>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="../modules/_parse_mime_.html">"parse-<wbr>mime"</a>
+						<a href="_aws_s3_getfile_.html">"aws/s3-<wbr>getfile"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="../modules/_s3_getfile_.html">"s3-<wbr>getfile"</a>
+						<a href="_parse_mime_.html">"parse-<wbr>mime"</a>
 					</li>
 					<li class="current tsd-kind-external-module tsd-is-external">
-						<a href="../modules/_tap_types_.html">"tap-<wbr>types"</a>
+						<a href="_scan_dir_.html">"scan-<wbr>dir"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="_singer_tap_load_config_.html">"singer/tap-<wbr>load-<wbr>config"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="_singer_tap_types_.html">"singer/tap-<wbr>types"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="_tap_main_.html">"tap-<wbr>main"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-is-external">
-						<a href="_tap_types_.streamrecord.html" class="tsd-kind-icon">stream<wbr>Record</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
-								<a href="_tap_types_.streamrecord.html#record" class="tsd-kind-icon">record</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
-								<a href="_tap_types_.streamrecord.html#stream" class="tsd-kind-icon">stream</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
-								<a href="_tap_types_.streamrecord.html#time_extracted" class="tsd-kind-icon">time_<wbr>extracted</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
-								<a href="_tap_types_.streamrecord.html#type" class="tsd-kind-icon">type</a>
-							</li>
-						</ul>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+						<a href="_scan_dir_.html#generateschema" class="tsd-kind-icon">generate<wbr>Schema</a>
 					</li>
-				</ul>
-				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-external">
-						<a href="_tap_types_.streamschema.html" class="tsd-kind-icon">stream<wbr>Schema</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-external">
-						<a href="_tap_types_.streamstate.html" class="tsd-kind-icon">stream<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
-						<a href="../interfaces/_tap_types_.configtype.html" class="tsd-kind-icon">Config<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
-						<a href="../interfaces/_tap_types_.allconfigs.html" class="tsd-kind-icon">all<wbr>Configs</a>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
+						<a href="_scan_dir_.html#scandir" class="tsd-kind-icon">scan<wbr>Dir</a>
 					</li>
 				</ul>
 			</nav>
