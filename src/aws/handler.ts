@@ -14,6 +14,7 @@ import * as tapTypes from '../singer/tap-types'
 // response object for Lambda Proxy integration; see https://serverless.com/framework/docs/providers/aws/events/apigateway/
 class lambdaResponse {
   statusCode: number = 200
+  isBase64Encoded: boolean = false
   headers: object = {
     // TODO: limit to a whitelist of allowed sites
     'Access-Control-Allow-Origin': '*', // Required for CORS support to work
@@ -45,12 +46,19 @@ export async function doParse(event: any, context: any, callback: any) {
     // ..that contains the custom fields needed by your particular parser
 
     let toParse = body.toParse
-    let config = <tapTypes.allConfigs>JSON.parse(body.config)
+    let config = <tapTypes.allConfigs>body.config //JSON.parse(body.config)
     response.body = JSON.stringify(await parseItem(toParse, config))
     callback(null, response)
   } catch (err) {
     console.log(err)
-    context.done(err, err)
+    response.statusCode = 500
+    response.body = JSON.stringify({ message: 'an error has occurred' })
+    // not returning as an error, per callback (error param is still null), but setting response to represent the error
+    callback(null, response)
+    //callback(new Error("an error has occurred"))
+    // These errors aren't getting passed all the way back through API Gateway, no matter what we do here. Set up API Gateway
+    // appears to be required: https://aws.amazon.com/blogs/compute/error-handling-patterns-in-amazon-api-gateway-and-aws-lambda/
+    // https://aws.amazon.com/premiumsupport/knowledge-center/malformed-502-api-gateway/
     return
   }
 }
